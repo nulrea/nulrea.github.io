@@ -6,6 +6,6 @@ AND IT'S STILL IN DEVELOPMENT.
 DOESN'T HAVE PROTECTION.
 - ONLY USE SERVICE AS A FREE TOOL FOR ANYONE TO USE.
 
-## Current direction in making this website:
+## Developing website purposes:
 
 1. florr.io tools
