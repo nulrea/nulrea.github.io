@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-<html lang=”en>
+<html lang="en">
     <head>
         <link rel="stylesheet" href=".\styles.css">
+        <script src="script.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta http-equiv='cache-control' content='no-cache'> 
-        <meta http-equiv='expires' content='0'> 
-        <meta http-equiv='pragma' content='no-cache'>
         <title>title</title>
     </head>
     <body>
@@ -26,7 +23,7 @@
         <!-- FLORR.IO THINGS -->
         <div id="florr.io_content">
             <h4>
-                DID YOU KNOW
+                DO YOU KNOW
             </h4>
             <p>
                 The formula of the XP capacity, where your LEVEL is x:
@@ -34,6 +31,118 @@
             <abbr title="A little outdated" style="size: 1.5pt;">
                 20×floor(1.05<sup>x−1</sup>x)
             </abbr>
+            <div style="background-color: azure; outline: 2px dashed aqua; padding: 10pt">
+                <h1>
+                    EXP calculator:
+                </h1>
+                <br>
+                <table>
+                    <tr>
+                        <td>
+                            Level: 
+                        </td>
+                        <td>
+                            <input type="number" id="level_input" name="level_input" min="1" value="1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            EXP:
+                        </td>
+                        <td>
+                            <input type="number" id="exp_input" name="exp_input" min="0" value="0">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Calculate EXP:
+                        </td>
+                        <td>
+                            <select id="exp_calculate_type" name="exp_type">
+                                <option value="before">
+                                    before absorb to this level
+                                </option>
+                                <option value="after">
+                                    after absorb these petals
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <h2>
+                    PETALS:
+                </h2>
+                <table>
+                    <tr>
+                        <td>
+                            Common:
+                        </td>
+                        <td id="petal_common">
+                            <input type="number" id="petal_common_input" name="petal_c_input" min="0" value="0">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Unusual:
+                        </td>
+                        <td id="petal_unusual">
+                            <input type="number" id="petal_unusual_input" name="petal_u_input" min="0" value="0">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Rare:
+                        </td>
+                        <td id="petal_rare">
+                            <input type="number" id="petal_rare_input" name="petal_r_input" min="0" value="0">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Epic:
+                        </td>
+                        <td id="petal_epic">
+                            <input type="number" id="petal_epic_input" name="petal_e_input" min="0" value="0">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Legendary:
+                        </td>
+                        <td id="petal_legendary">
+                            <input type="number" id="petal_legendary_input" name="petal_l_input" min="0" value="0">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mythic:
+                        </td>
+                        <td id="petal_mythic">
+                            <input type="number" id="petal_mythic_input" name="petal_m_input" min="0" value="0">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ultra:
+                        </td>
+                        <td id="petal_ultra">
+                            <input type="number" id="petal_ultra_input" name="petal_ul_input" min="0" value="0">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Super:
+                        </td>
+                        <td id="petal_super">
+                            <input type="number" id="petal_super_input" name="petal_s_input" min="0" value="0">
+                        </td>
+                    </tr>
+                </table>
+                <button onclick="on_calculate_EXP()">SUBMIT</button>
+                <p id="EXP_result">
+                    The result will be shown here.
+                </p>
+            </div>
         </div>
     </body>
 </html>

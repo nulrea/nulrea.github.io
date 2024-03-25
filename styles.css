@@ -3,6 +3,14 @@
     font-family: 'Ubuntu', sans-serif;
   }
 
+  input {
+    background-color: lightcyan;
+  }
+
+  select {
+    background-color: lightcyan;
+  }
+
   a:link {
     color: green;
     background-color: transparent;
@@ -25,4 +33,46 @@
     color: yellow;
     background-color: transparent;
     text-decoration: underline;
+  }
+
+  [id*="common"] {
+    background-color: #7eef6d;
+  }
+
+  [id*="unusual"] {
+    background-color: #ffe65d;
+  }
+
+  [id*="rare"] {
+    background-color: #4d52e3;
+  }
+
+  [id*="epic"] {
+    background-color: #861fde;
+  }
+
+  [id*="legendary"] {
+    background-color: #de1f1f;
+  }
+
+  [id*="mythic"] {
+    background-color: #1fdbde;
+  }
+
+  [id*="ultra"] {
+    background-color: #ff2b75;
+  }
+
+  [id*="super"] {
+    background-color: #2bffa3;
+  }
+
+  button {
+    background-color: lightsteelblue;
+    border: 1px solid mediumaquamarine;
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+  button:hover {
+    background-color: steelblue;
   }
