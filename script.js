@@ -42,7 +42,7 @@ function on_calculate_EXP() {
             Number(document.getElementById("petal_super_input").value) * 5_000_000_000,
         level = Number(document.getElementById("level_input").value),
         rXP =  Number(document.getElementById("exp_input").value);
-    if (document.getElementById("exp_calculate_type") == "after") {
+    if (document.getElementById("exp_calculate_type").value == "after") {
         while (XP-EXP_calculate(level) >= 0) {
             XP-=EXP_calculate(level);
             level++;
@@ -53,10 +53,11 @@ function on_calculate_EXP() {
             level--;
             rXP = EXP_calculate(level);
             if (level == 0) {
-                alert("ERROR: Level gone below 1, stopped.")
+                alert("ERROR: Level gone below 1, stopped.");
+                return;
             }
         }
     };
-    document.getElementById("EXP_result").innerText = "Level: " + level + "; XP: " + XP + "(" + numeric_to_string(XP) + ")";
+    document.getElementById("EXP_result").innerText = "Level: " + level + "; XP: " + XP + " (" + numeric_to_string(XP) + ")";
     return;
 }
