@@ -18,6 +18,7 @@ function EXP_calculate(level) {
 
 function numeric_to_string(number) {
     // get digits
+    if (number <= 0) return 0;
     len = Math.floor(Math.log10(number)) + 1;
     suffix = Math.floor((len-1)/3);
     modified = round(number, len-2);
@@ -57,7 +58,8 @@ function on_calculate_EXP() {
                 alert("ERROR: Level gone below 1, stopped.");
                 return;
             }
-        }
+        };
+        XP = Number(EXP_calculate(level)) - XP;
     };
     document.getElementById("EXP_result").innerText = "Level: " + level + "; XP: " + XP + " (" + numeric_to_string(XP) + ")";
     return;
