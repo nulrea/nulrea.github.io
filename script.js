@@ -57,6 +57,6 @@ function on_calculate_EXP() {
             }
         }
     };
-    document.getElementById("EXP_result").innerText = "Level: " + level + "; XP: " + XP;
+    document.getElementById("EXP_result").innerText = "Level: " + level + "; XP: " + XP + "(" + numeric_to_string(XP) + ")";
     return;
 }
