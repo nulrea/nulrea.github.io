@@ -43,6 +43,7 @@ function on_calculate_EXP() {
         level = Number(document.getElementById("level_input").value),
         rXP =  Number(document.getElementById("exp_input").value);
     if (document.getElementById("exp_calculate_type").value == "after") {
+        XP+=rXP;
         while (XP-EXP_calculate(level) >= 0) {
             XP-=EXP_calculate(level);
             level++;
