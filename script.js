@@ -10,7 +10,7 @@ const NUMERIC_SUFFIX = [  "",   "k",   "m",   "b",    "t",   "qd",   "qn",   "sx
                                 "ng", "ung", "dng", "tng", "qdng", "qnng", "sxng", "spng", "ocng", "nong",
                                 "ce", "uce", "dce", "tce", "qdce", "qnce", "sxce", "spce", "occe", "noce",
 ],
-      RARITY_INDEX = ["common", "unusual", "rare", "epic", "legendary", "mythic",  "ultra",    "super",   "celestial",         "chaos",         "effulgent"]
+      RARITY_INDEX = ["common", "unusual", "rare", "epic", "legendary", "mythic",  "ultra",    "super",   "celestial",         "chaos",         "effulgent"],
       CORRES_VALUE = [       1,         5,     50,     500,      10000,   500000, 50000000, 5000000000, 1000000000000, 500000000000000, 1000000000000000000];
 
 let is_visible = false;
