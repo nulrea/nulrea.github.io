@@ -67,6 +67,62 @@
     background-color: #2bffa3;
   }
 
+  [id*="celestial"] {
+    background-color: #ffbb25;
+  }
+
+  [id*="chaos"] {
+    background-color: #321f92;
+  }
+
+  [id*="effulgent"] {
+    background-color: #f4bdf2;
+  }
+
+  label[id*="common"] {
+    color: #7eef6d;
+  }
+
+  label[id*="unusual"] {
+    color: #ffe65d;
+  }
+
+  label[id*="rare"] {
+    color: #4d52e3;
+  }
+
+  label[id*="epic"] {
+    color: #861fde;
+  }
+
+  label[id*="legendary"] {
+    color: #de1f1f;
+  }
+
+  label[id*="mythic"] {
+    color: #1fdbde;
+  }
+
+  label[id*="ultra"] {
+    color: #ff2b75;
+  }
+
+  label[id*="super"] {
+    color: #2bffa3;
+  }
+
+  label[id*="celestial"] {
+    color: #ffbb25;
+  }
+
+  label[id*="chaos"] {
+    color: #321f92;
+  }
+
+  label[id*="effulgent"] {
+    color: #f4bdf2;
+  }
+
   button {
     background-color: lightsteelblue;
     border: 1px solid mediumaquamarine;

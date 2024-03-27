@@ -33,7 +33,7 @@
             </abbr>
             <div style="background-color: azure; outline: 2px dashed aqua; padding: 10pt">
                 <h1>
-                    EXP calculator:
+                    EXP calculator
                 </h1>
                 <br>
                 <table>
@@ -72,6 +72,9 @@
                 <h2>
                     PETALS:
                 </h2>
+                <button onclick="Extension_toggle()" style="font-size: large;" class="button_toggle">
+                    EXPAND
+                </button>
                 <table>
                     <tr>
                         <td>
@@ -137,11 +140,179 @@
                             <input type="number" id="petal_super_input" name="petal_s_input" min="0" value="0">
                         </td>
                     </tr>
+                    <tr class="extensions" style="display: none">
+                        <td>
+                            Celestial:
+                        </td>
+                        <td id="petal_celestial">
+                            <input type="number" id="petal_celestial_input" name="petal_t_input" min="0" value="0">
+                        </td>
+                    </tr>
+                    <tr class="extensions" style="display: none">
+                        <td>
+                            Chaos:
+                        </td>
+                        <td id="petal_chaos">
+                            <input type="number" id="petal_chaos_input" name="petal_k_input" min="0" value="0">
+                        </td>
+                    </tr>
+                    <tr class="extensions" style="display: none">
+                        <td>
+                            Effulgent:
+                        </td>
+                        <td id="petal_effulgent">
+                            <input type="number" id="petal_effulgent_input" name="petal_f_input" min="0" value="0">
+                        </td>
+                    </tr>
                 </table>
-                <button onclick="on_calculate_EXP()">SUBMIT</button>
+                <button onclick="on_calculate_EXP()">
+                    SUBMIT
+                </button>
                 <p id="EXP_result">
                     The result will be shown here.
                 </p>
+                <h1>
+                    XP difference calculator
+                </h1>
+                <table>
+                    <tr>
+                        <td>
+                            Current Level: 
+                        </td>
+                        <td>
+                            <input type="number" id="b_level_input" name="level_input" min="1" value="1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Current EXP:
+                        </td>
+                        <td>
+                            <input type="number" id="b_exp_input" name="exp_input" min="0" value="0">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Goal Level: 
+                        </td>
+                        <td>
+                            <input type="number" id="a_level_input" name="level_input" min="1" value="1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Goal EXP:
+                        </td>
+                        <td>
+                            <input type="number" id="a_exp_input" name="exp_input" min="0" value="0">
+                        </td>
+                    </tr>
+                </table>
+                <button onclick="level_difference()" style="margin-bottom: 10px;">
+                    SUBMIT
+                </button>
+                <br>
+                <button onclick="Extension_toggle()" style="font-size: large;" class="button_toggle">
+                    EXPAND
+                </button>
+                <table>
+                    <tr>
+                        <td>
+                            XP Difference:
+                        </td>
+                        <td id="xp_dif">
+                            NaN
+                        </td>
+                    </tr>
+                    <tr class="extensions" style="display: none">
+                        <td id="lbl_common">
+                            Common:
+                        </td>
+                        <td id="xp_common_output">
+                            NaN
+                        </td>
+                    </tr>
+                    <tr class="extensions" style="display: none">
+                        <td id="lbl_unusual">
+                            Unusual:
+                        </td>
+                        <td id="xp_unusual_output">
+                            NaN
+                        </td>
+                    </tr>
+                    <tr class="extensions" style="display: none">
+                        <td id="lbl_rare">
+                            Rare:
+                        </td>
+                        <td id="xp_rare_output">
+                            NaN
+                        </td>
+                    </tr>
+                    <tr class="extensions" style="display: none">
+                        <td id="lbl_epic">
+                            Epic:
+                        </td>
+                        <td id="xp_epic_output">
+                            NaN
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="lbl_legendary">
+                            Legendary:
+                        </td>
+                        <td id="xp_legendary_output">
+                            NaN
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="lbl_mythic">
+                            Mythic:
+                        </td>
+                        <td id="xp_mythic_output">
+                            NaN
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="lbl_ultra">
+                            Ultra:
+                        </td>
+                        <td id="xp_ultra_output">
+                            NaN
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="lbl_super">
+                            Super:
+                        </td>
+                        <td id="xp_super_output">
+                            NaN
+                        </td>
+                    </tr>
+                    <tr class="extensions" style="display: none">
+                        <td id="lbl_celestial">
+                            Celestial:
+                        </td>
+                        <td id="xp_celestial_output">
+                            NaN
+                        </td>
+                    </tr>
+                    <tr class="extensions" style="display: none">
+                        <td id="lbl_chaos">
+                            Chaos:
+                        </td>
+                        <td id="xp_chaos_output">
+                            NaN
+                        </td>
+                    </tr>
+                    <tr class="extensions" style="display: none">
+                        <td id="lbl_effulgent">
+                            Effulgent:
+                        </td>
+                        <td id="xp_effulgent_output">
+                            NaN
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </body>
