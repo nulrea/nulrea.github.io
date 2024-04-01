@@ -119,7 +119,7 @@ function level_difference() {
     for (let i = Number(document.getElementById("b_level_input").value); i < Number(document.getElementById("a_level_input").value); i++) {
         XP += EXP_calculate(i);
     };
-    document.getElementById("xp_dif").innerText = XP;
+    document.getElementById("xp_dif").innerText = numeric_to_string_(XP);
     for (let i = 0; i < RARITY_INDEX.length; i++) {
         document.getElementById("xp_" + RARITY_INDEX[i] + "_output").innerText = numeric_to_string_(Math.ceil(XP / CORRES_VALUE[i]));
     }
