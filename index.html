@@ -25,12 +25,18 @@
             <h4>
                 DO YOU KNOW
             </h4>
-            <p>
+            <h5>
                 The formula of the XP capacity, where your LEVEL is x:
-            <br>
-            <abbr title="A little outdated" style="size: 1.5pt;">
-                20×floor(1.05<sup>x−1</sup>x)
+            </h5>
+            <abbr title="Need clarifications" style="size: 1.5pt;">
+                f(x) = 10×round(4x×1.05<sup>2x+1</sup>+(4x+2)×1.05<sup>2x</sup>)
             </abbr>
+            <p>
+                g(x, a) = 10<sup>a</sup>×round(x/10<sup>a</sup>)
+            </p>
+            <p>
+                XP needed = g(f(x), floor(log<sub>10</sub>f(x))-1)
+            </p>
             <div style="background-color: azure; outline: 2px dashed aqua; padding: 10pt">
                 <h1>
                     EXP calculator
@@ -60,108 +66,30 @@
                         <td>
                             <select id="exp_calculate_type" name="exp_type">
                                 <option value="before">
-                                    before absorb to this level
+                                    before reach to this level
                                 </option>
                                 <option value="after">
-                                    after absorb these petals
+                                    after gain these XP
                                 </option>
                             </select>
                         </td>
                     </tr>
                 </table>
                 <h2>
-                    PETALS:
+                    Changes:
                 </h2>
+                <!--
                 <button onclick="Extension_toggle()" style="font-size: large;" class="button_toggle">
                     EXPAND
                 </button>
+                -->
                 <table>
                     <tr>
                         <td>
-                            Common:
+                            XP:
                         </td>
-                        <td id="petal_common">
-                            <input type="number" id="petal_common_input" name="petal_c_input" min="0" value="0">
-                        </td>
-                    </tr>
-                    <tr>
                         <td>
-                            Unusual:
-                        </td>
-                        <td id="petal_unusual">
-                            <input type="number" id="petal_unusual_input" name="petal_u_input" min="0" value="0">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Rare:
-                        </td>
-                        <td id="petal_rare">
-                            <input type="number" id="petal_rare_input" name="petal_r_input" min="0" value="0">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Epic:
-                        </td>
-                        <td id="petal_epic">
-                            <input type="number" id="petal_epic_input" name="petal_e_input" min="0" value="0">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Legendary:
-                        </td>
-                        <td id="petal_legendary">
-                            <input type="number" id="petal_legendary_input" name="petal_l_input" min="0" value="0">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Mythic:
-                        </td>
-                        <td id="petal_mythic">
-                            <input type="number" id="petal_mythic_input" name="petal_m_input" min="0" value="0">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Ultra:
-                        </td>
-                        <td id="petal_ultra">
-                            <input type="number" id="petal_ultra_input" name="petal_ul_input" min="0" value="0">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Super:
-                        </td>
-                        <td id="petal_super">
-                            <input type="number" id="petal_super_input" name="petal_s_input" min="0" value="0">
-                        </td>
-                    </tr>
-                    <tr class="extensions" style="display: none">
-                        <td>
-                            Celestial:
-                        </td>
-                        <td id="petal_celestial">
-                            <input type="number" id="petal_celestial_input" name="petal_t_input" min="0" value="0">
-                        </td>
-                    </tr>
-                    <tr class="extensions" style="display: none">
-                        <td>
-                            Chaos:
-                        </td>
-                        <td id="petal_chaos">
-                            <input type="number" id="petal_chaos_input" name="petal_k_input" min="0" value="0">
-                        </td>
-                    </tr>
-                    <tr class="extensions" style="display: none">
-                        <td>
-                            Effulgent:
-                        </td>
-                        <td id="petal_effulgent">
-                            <input type="number" id="petal_effulgent_input" name="petal_f_input" min="0" value="0">
+                            <input type="number" id="petal_input" name="petal_input" min="0" value="0">
                         </td>
                     </tr>
                 </table>
@@ -212,103 +140,17 @@
                     SUBMIT
                 </button>
                 <br>
+                <!--
                 <button onclick="Extension_toggle()" style="font-size: large;" class="button_toggle">
                     EXPAND
                 </button>
+                -->
                 <table>
                     <tr>
                         <td>
                             XP Difference:
                         </td>
                         <td id="xp_dif">
-                            NaN
-                        </td>
-                    </tr>
-                    <tr class="extensions" style="display: none">
-                        <td id="lbl_common">
-                            Common:
-                        </td>
-                        <td id="xp_common_output">
-                            NaN
-                        </td>
-                    </tr>
-                    <tr class="extensions" style="display: none">
-                        <td id="lbl_unusual">
-                            Unusual:
-                        </td>
-                        <td id="xp_unusual_output">
-                            NaN
-                        </td>
-                    </tr>
-                    <tr class="extensions" style="display: none">
-                        <td id="lbl_rare">
-                            Rare:
-                        </td>
-                        <td id="xp_rare_output">
-                            NaN
-                        </td>
-                    </tr>
-                    <tr class="extensions" style="display: none">
-                        <td id="lbl_epic">
-                            Epic:
-                        </td>
-                        <td id="xp_epic_output">
-                            NaN
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="lbl_legendary">
-                            Legendary:
-                        </td>
-                        <td id="xp_legendary_output">
-                            NaN
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="lbl_mythic">
-                            Mythic:
-                        </td>
-                        <td id="xp_mythic_output">
-                            NaN
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="lbl_ultra">
-                            Ultra:
-                        </td>
-                        <td id="xp_ultra_output">
-                            NaN
-                        </td>
-                    </tr>
-                    <tr>
-                        <td id="lbl_super">
-                            Super:
-                        </td>
-                        <td id="xp_super_output">
-                            NaN
-                        </td>
-                    </tr>
-                    <tr class="extensions" style="display: none">
-                        <td id="lbl_celestial">
-                            Celestial:
-                        </td>
-                        <td id="xp_celestial_output">
-                            NaN
-                        </td>
-                    </tr>
-                    <tr class="extensions" style="display: none">
-                        <td id="lbl_chaos">
-                            Chaos:
-                        </td>
-                        <td id="xp_chaos_output">
-                            NaN
-                        </td>
-                    </tr>
-                    <tr class="extensions" style="display: none">
-                        <td id="lbl_effulgent">
-                            Effulgent:
-                        </td>
-                        <td id="xp_effulgent_output">
                             NaN
                         </td>
                     </tr>
