@@ -20,7 +20,7 @@ function round(x, a) {
 }
 
 function f(x) {
-    return 10*Math.round(4*x*1.05**(2*x+1)+(4*x+2)*1.05**(2*x))
+    return 20*(Math.floor((2*x)*1.05**(2*x-1))+Math.floor((2*x+1)*1.05**(2*x)))  // inaccurate (110 = 400m)
 }
 
 function EXP_calculate(level) {
@@ -29,8 +29,7 @@ function EXP_calculate(level) {
     } else if (level > 7137) {
         return Infinity
     } else {
-        XP = 10*Math  // inaccurate
-        return Number(f(level).toPrecision(2))
+        return f(level)
     }
 }
 
