@@ -20,7 +20,7 @@ function round(x, a) {
 }
 
 function f(x) {
-    return 20*(Math.floor((2*x)*1.05**(2*x-1))+Math.floor((2*x+1)*1.05**(2*x)))  // inaccurate (110 = 400m)
+    return Number((20*(Math.floor((2*x)*1.05**(2*x-1))+Math.floor((2*x+1)*1.05**(2*x)))).toPrecision(2))
 }
 
 function EXP_calculate(level) {
