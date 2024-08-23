@@ -52,6 +52,10 @@ function on_calculate_EXP() {
     let XP = Number(document.getElementById("petal_input").value),
         level = Number(document.getElementById("level_input").value),
         rXP =  Number(document.getElementById("exp_input").value)
+    if (rXP < 0) {
+        alert("Your current XP must be nonnegative, right?")
+        return
+    }
     if (document.getElementById("exp_calculate_type").value == "after") {
         XP+=rXP
         while (XP-EXP_calculate(level) >= 0) {
