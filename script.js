@@ -1,17 +1,17 @@
-const NUMERIC_SUFFIX = [  "",   "k",   "m",   "b",    "t",   "qd",   "qn",   "sx",   "sp",   "oc",   "no",
-                                "de", "ude", "dde", "tde", "qdde", "qnde", "sxde", "spde", "ocde", "node",
-                                "vt", "uvt", "dvt", "tvt", "qdvt", "qnvt", "sxvt", "spvt", "ocvt", "novt",
-                                "tg", "utg", "dtg", "ttg", "qdtg", "qntg", "sxtg", "sptg", "octg", "notg",
-                                "qd", "uqd", "dqd", "tqd", "qdqd", "qnqd", "sxqd", "spqd", "ocqd", "noqd",
-                                "qg", "uqg", "dqg", "tqg", "qdqg", "qnqg", "sxqg", "spqg", "ocqg", "noqg",
-                                "sg", "usg", "dsg", "tsg", "qdsg", "qnsg", "sxsg", "spsg", "ocsg", "nosg",
-                                "st", "ust", "dst", "tst", "qdst", "qnst", "sxst", "spst", "ocst", "nost",
-                                "og", "uog", "dog", "tog", "qdog", "qnog", "sxog", "spog", "ocog", "noog",
-                                "ng", "ung", "dng", "tng", "qdng", "qnng", "sxng", "spng", "ocng", "nong",
+const NUMERIC_SUFFIX = [  "",   "k",   "m",   "b",    "t",   "qd",   "qt",   "sx",   "sp",   "oc",   "no",
+                                "de", "ude", "dde", "tde", "qdde", "qtde", "sxde", "spde", "ocde", "node",
+                                "vt", "uvt", "dvt", "tvt", "qdvt", "qtvt", "sxvt", "spvt", "ocvt", "novt",
+                                "tg", "utg", "dtg", "ttg", "qdtg", "qttg", "sxtg", "sptg", "octg", "notg",
+                                "qd", "uqd", "dqd", "tqd", "qdqd", "qtqd", "sxqd", "spqd", "ocqd", "noqd",
+                                "qg", "uqg", "dqg", "tqg", "qdqg", "qtqg", "sxqg", "spqg", "ocqg", "noqg",
+                                "sg", "usg", "dsg", "tsg", "qdsg", "qtsg", "sxsg", "spsg", "ocsg", "nosg",
+                                "st", "ust", "dst", "tst", "qdst", "qtst", "sxst", "spst", "ocst", "nost",
+                                "og", "uog", "dog", "tog", "qdog", "qtog", "sxog", "spog", "ocog", "noog",
+                                "ng", "ung", "dng", "tng", "qdng", "qtng", "sxng", "spng", "ocng", "nong",
                                 "ce", "uce",
 ],
-      RARITY_INDEX = ["common", "unusual", "rare", "epic", "legendary", "mythic",  "ultra",    "super",   "celestial",         "chaos",         "effulgent"],
-      CORRES_VALUE = [       1,         5,     50,     500,      10000,   500000, 50000000, 5000000000, 1000000000000, 500000000000000, 1000000000000000000]
+        RARITY_INDEX = ["common", "unusual", "rare", "epic", "legendary", "mythic",  "ultra",    "super",   "celestial",         "chaos",         "effulgent"],
+        CORRES_VALUE = [       1,         5,     50,     500,      10000,   500000, 50000000, 5000000000, 1000000000000, 500000000000000, 1000000000000000000]
 
 let is_visible = false
 
