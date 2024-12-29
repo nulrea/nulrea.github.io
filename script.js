@@ -23,7 +23,7 @@ function f(x) {
     return Number((20*(Math.floor((2*x)*1.05**(2*x-1))+Math.floor((2*x+1)*1.05**(2*x)))).toPrecision(2))
 }
 
-function EXP_calculate(level) {
+function XP_calculate(level) {
     if (level == 1) {
         return 15
     } else if (level > 7137) {
@@ -44,29 +44,29 @@ function numeric_to_string(number, digit) {
     return string
 }
 
-function on_calculate_EXP() {
-    if (EXP_calculate(Number(document.getElementById("level_input").value)) <= Number(document.getElementById("exp_input").value)) {
-        alert("The EXP of this level is " + numeric_to_string(EXP_calculate(Number(document.getElementById("level_input").value)), 2) + " but the EXP is larger than this.")
+function on_calculate_XP() {
+    if (XP_calculate(Number(document.getElementById("level_input").value)) <= Number(document.getElementById("XP_input").value)) {
+        alert("The XP of this level is " + numeric_to_string(XP_calculate(Number(document.getElementById("level_input").value)), 2) + " but the XP is larger than this.")
         return
     }
     let XP = Number(document.getElementById("petal_input").value),
         level = Number(document.getElementById("level_input").value),
-        rXP =  Number(document.getElementById("exp_input").value)
+        rXP =  Number(document.getElementById("XP_input").value)
     if (rXP < 0) {
         alert("Your current XP must be nonnegative, right?")
         return
     }
-    if (document.getElementById("exp_calculate_type").value == "after") {
+    if (document.getElementById("XP_calculate_type").value == "after") {
         XP+=rXP
-        while (XP-EXP_calculate(level) >= 0) {
-            XP-=EXP_calculate(level)
+        while (XP-XP_calculate(level) >= 0) {
+            XP-=XP_calculate(level)
             level++
         }
     } else {
         rXP -= XP
         while (rXP < 0) {
             level--
-            XP=EXP_calculate(level)
+            XP=XP_calculate(level)
             if (level <= 0) {
                 alert("Error: Level gone below 1 when still have " + -rXP + " XP remain.")
                 return
@@ -75,7 +75,7 @@ function on_calculate_EXP() {
         }
         XP = rXP
     }
-    document.getElementById("EXP_result").innerText = "Level " + level + ": " + XP + "/" + numeric_to_string(EXP_calculate(level), 2) + " (" + numeric_to_string(XP, 3) + ", " + (XP/EXP_calculate(level)*100).toPrecision(4) + "%)"
+    document.getElementById("XP_result").innerText = "Level " + level + ": " + XP + "/" + numeric_to_string(XP_calculate(level), 2) + " (" + numeric_to_string(XP, 3) + ", " + (XP/XP_calculate(level)*100).toPrecision(4) + "%)"
     return
 }
 
@@ -84,7 +84,7 @@ function Extension_toggle() {
     for (let i = 0; i < obj.length; i++) {
         if (is_visible) {
             obj[i].style = "display: none"
-            rename_btns("EXPAND")
+            rename_btns("XPAND")
         } else {
             obj[i].style = ""
             rename_btns("COLLAPSE")
@@ -108,12 +108,12 @@ function level_difference() {
     if (Number(document.getElementById("b_level_input").value) > Number(document.getElementById("a_level_input").value)) {  
         alert("Level before is greater than level after.")
         return
-    } else if ((Number(document.getElementById("b_level_input").value) === Number(document.getElementById("a_level_input").value)) && (Number(document.getElementById("b_exp_input")) > Number(document.getElementById("a_exp_input")))) {
+    } else if ((Number(document.getElementById("b_level_input").value) === Number(document.getElementById("a_level_input").value)) && (Number(document.getElementById("b_XP_input")) > Number(document.getElementById("a_XP_input")))) {
         alert("XP before is greater than XP after.")
     }
-    let XP = Number(document.getElementById("a_exp_input").value) - Number(document.getElementById("b_exp_input").value)
+    let XP = Number(document.getElementById("a_XP_input").value) - Number(document.getElementById("b_XP_input").value)
     for (let i = Number(document.getElementById("b_level_input").value); i < Number(document.getElementById("a_level_input").value); i++) {
-        XP += EXP_calculate(i)
+        XP += XP_calculate(i)
     }
     document.getElementById("xp_dif").innerText = numeric_to_string_(XP)
 }

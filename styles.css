@@ -7,122 +7,117 @@
     background-color: lightcyan;
   }
 
+  input, select {
+    font-family: 'Ubuntu', sans-serif;
+  }
+
   select {
     background-color: lightcyan;
   }
 
+  h1, h2, h3, h4, h5 {
+    text-shadow: 2px 2px aquamarine;
+  }
+
+  a, p, td {
+    text-shadow: 1px 1px aquamarine;
+  }
+
+  div h4, div h5, div p {
+    text-shadow: 1px 1px rosybrown;
+  }
+
   a:link {
-    color: green;
+    color: lightskyblue;
     background-color: transparent;
     text-decoration: none;
   }
   
   a:visited {
-    color: pink;
+    color: blueviolet;
     background-color: transparent;
     text-decoration: none;
   }
   
   a:hover {
-    color: red;
+    color: lightskyblue;
     background-color: transparent;
     text-decoration: underline;
   }
   
   a:active {
-    color: yellow;
+    color: white;
     background-color: transparent;
     text-decoration: underline;
   }
 
-  [id*="common"] {
+  div[id*="content"] {
+    outline: 2px double aqua;
+    background-color: lightcyan;
+    padding: 10pt;
+  }
+
+  [id*="fact"] {
+    outline: 5px dashed gray;
+    background-color: palevioletred;
+    padding: 6px;
+  }
+
+  [id*="common"], label[id*="common"] {
     background-color: #7eef6d;
-  }
-
-  [id*="unusual"] {
-    background-color: #ffe65d;
-  }
-
-  [id*="rare"] {
-    background-color: #4d52e3;
-  }
-
-  [id*="epic"] {
-    background-color: #861fde;
-  }
-
-  [id*="legendary"] {
-    background-color: #de1f1f;
-  }
-
-  [id*="mythic"] {
-    background-color: #1fdbde;
-  }
-
-  [id*="ultra"] {
-    background-color: #ff2b75;
-  }
-
-  [id*="super"] {
-    background-color: #2bffa3;
-  }
-
-  [id*="celestial"] {
-    background-color: #ffbb25;
-  }
-
-  [id*="chaos"] {
-    background-color: #321f92;
-  }
-
-  [id*="effulgent"] {
-    background-color: #f4bdf2;
-  }
-
-  label[id*="common"] {
     color: #7eef6d;
   }
 
-  label[id*="unusual"] {
+  [id*="unusual"], label[id*="unusual"] {
+    background-color: #ffe65d;
     color: #ffe65d;
   }
 
-  label[id*="rare"] {
+  [id*="rare"], label[id*="rare"] {
+    background-color: #4d52e3;
     color: #4d52e3;
   }
 
-  label[id*="epic"] {
+  [id*="epic"], label[id*="epic"] {
+    background-color: #861fde;
     color: #861fde;
   }
 
-  label[id*="legendary"] {
+  [id*="legendary"], label[id*="legendary"] {
+    background-color: #de1f1f;
     color: #de1f1f;
   }
 
-  label[id*="mythic"] {
+  [id*="mythic"], label[id*="mythic"] {
+    background-color: #1fdbde;
     color: #1fdbde;
   }
 
-  label[id*="ultra"] {
+  [id*="ultra"], label[id*="ultra"] {
+    background-color: #ff2b75;
     color: #ff2b75;
   }
 
-  label[id*="super"] {
+  [id*="super"], label[id*="super"] {
+    background-color: #2bffa3;
     color: #2bffa3;
   }
 
-  label[id*="celestial"] {
+  [id*="celestial"], label[id*="celestial"] {
+    background-color: #ffbb25;
     color: #ffbb25;
   }
 
-  label[id*="chaos"] {
+  [id*="chaos"], label[id*="chaos"] {
+    background-color: #321f92;
     color: #321f92;
   }
 
-  label[id*="effulgent"] {
+  [id*="effulgent"], label[id*="effulgent"] {
+    background-color: #f4bdf2;
     color: #f4bdf2;
   }
-
+  
   button {
     background-color: lightsteelblue;
     border: 1px solid mediumaquamarine;

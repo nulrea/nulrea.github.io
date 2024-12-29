@@ -22,24 +22,26 @@
         <hr>
         <!-- FLORR.IO THINGS -->
         <div id="florr.io_content">
-            <h4>
-                DO YOU KNOW
-            </h4>
-            <h5>
-                The formula of the XP capacity, where your LEVEL is x:
-            </h5>
-            <abbr title="Need clarifications" style="size: 1.5pt;">
-                f(x) = 20×(floor(2x×1.05<sup>2x-1</sup>)+floor((2x+1)×1.05<sup>2x</sup>))
-            </abbr>
-            <p>
-                g(x, a) = 10<sup>a</sup>×round(x/10<sup>a</sup>)
-            </p>
-            <p>
-                XP needed = g(f(x), floor(log<sub>10</sub>f(x))-1)
-            </p>
-            <div style="background-color: azure; outline: 2px dashed aqua; padding: 10pt">
+            <div id="fact">
+                <h4>
+                    DID YOU KNOW
+                </h4>
+                <h5>
+                    The formula of the XP capacity, where your LEVEL is x:
+                </h5>
+                <p>
+                    f(x) = 20×(floor(2x×1.05<sup>2x-1</sup>)+floor((2x+1)×1.05<sup>2x</sup>))
+                </p>
+                <p>
+                    g(x, a) = 10<sup>a</sup>×round(x/10<sup>a</sup>)
+                </p>
+                <p>
+                    XP needed = g(f(x), floor(log<sub>10</sub>f(x))-1)
+                </p>
+            </div>
+            <div>
                 <h1>
-                    EXP calculator
+                    XP calculator
                 </h1>
                 <br>
                 <table>
@@ -53,23 +55,23 @@
                     </tr>
                     <tr>
                         <td>
-                            EXP:
+                            XP:
                         </td>
                         <td>
-                            <input type="number" id="exp_input" name="exp_input" min="0" value="0">
+                            <input type="number" id="XP_input" name="XP_input" min="0" value="0">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Calculate EXP:
+                            Direction:
                         </td>
                         <td>
-                            <select id="exp_calculate_type" name="exp_type">
-                                <option value="before">
-                                    before reach to this level
-                                </option>
+                            <select id="XP_calculate_type" name="XP_type">
                                 <option value="after">
-                                    after gain these XP
+                                    add
+                                </option>
+                                <option value="before">
+                                    subtract
                                 </option>
                             </select>
                         </td>
@@ -80,7 +82,7 @@
                 </h2>
                 <!--
                 <button onclick="Extension_toggle()" style="font-size: large;" class="button_toggle">
-                    EXPAND
+                    XPAND
                 </button>
                 -->
                 <table>
@@ -93,10 +95,10 @@
                         </td>
                     </tr>
                 </table>
-                <button onclick="on_calculate_EXP()">
+                <button onclick="on_calculate_XP()">
                     SUBMIT
                 </button>
-                <p id="EXP_result">
+                <p id="XP_result">
                     The result will be shown here.
                 </p>
                 <h1>
@@ -113,10 +115,10 @@
                     </tr>
                     <tr>
                         <td>
-                            Current EXP:
+                            Current XP:
                         </td>
                         <td>
-                            <input type="number" id="b_exp_input" name="exp_input" min="0" value="0">
+                            <input type="number" id="b_XP_input" name="XP_input" min="0" value="0">
                         </td>
                     </tr>
                     <tr>
@@ -129,10 +131,10 @@
                     </tr>
                     <tr>
                         <td>
-                            Goal EXP:
+                            Goal XP:
                         </td>
                         <td>
-                            <input type="number" id="a_exp_input" name="exp_input" min="0" value="0">
+                            <input type="number" id="a_XP_input" name="XP_input" min="0" value="0">
                         </td>
                     </tr>
                 </table>
@@ -142,7 +144,7 @@
                 <br>
                 <!--
                 <button onclick="Extension_toggle()" style="font-size: large;" class="button_toggle">
-                    EXPAND
+                    XPAND
                 </button>
                 -->
                 <table>
