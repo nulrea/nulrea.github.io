@@ -23,7 +23,7 @@
     text-shadow: 1px 1px aquamarine;
   }
 
-  div h4, div h5, div p {
+  div[id*="fact"] h4, div[id*="fact"] h5, div[id*="fact"] p {
     text-shadow: 1px 1px rosybrown;
   }
 
