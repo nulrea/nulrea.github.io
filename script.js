@@ -36,6 +36,7 @@ C_ULTRA = COL_ULTRA[0]
 C_SUPER = COL_SUPER[0]
 
 arr_of_cols = [C_COMMON, C_UNUSUAL, C_RARE, C_EPIC, C_LEGENDARY, C_MYTHIC, C_ULTRA, C_SUPER]
+arr_of_dcols = ["#49E831", "#FFDC1B", "#2127D5", "#6D19B4", "#B41919", "#19B1B3" , "#F10054", "#00F189"] //darkened colours (19%)
 probabilities = [0.64, 0.32, 0.16, 0.08, 0.04, 0.02, 0.01, 0.005]
 
 function round(x, a) {
@@ -90,6 +91,11 @@ function calculate_function(x, c, a) {
 }
 
 function calculate_func(){
+    const canv = document.getElementById('crafting_result');
+    canv.remove();
+    let newcanv = document.createElement("canvas");
+    newcanv.id = "crafting_result";
+    document.getElementById('graph_container').appendChild(newcanv); // to prevent canvases from overlaping
     let ri = document.getElementById("crafting_rarity").value;
     let c = probabilities[ri];
     let x = document.getElementById("crafting_amount").value;
@@ -127,10 +133,13 @@ function calculate_func(){
             labels: xv,
             datasets: [{
                 backgroundColor: arr_of_cols[ri],
+                hoverBackgroundColor: arr_of_dcols[ri],
                 data: yv
             }]
         },
-        options: {}
+        options: {
+            legend: {display: false}
+        }
     });
     message_text.value = " "
 }
