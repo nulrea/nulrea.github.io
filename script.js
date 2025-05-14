@@ -134,8 +134,8 @@ function calculate_func(){
         data: {
             labels: xv,
             datasets: [{
-                backgroundColor: arr_of_cols[ri+1],
-                hoverBackgroundColor: arr_of_dcols[ri+1],
+                backgroundColor: arr_of_cols[ri-0+1],
+                hoverBackgroundColor: arr_of_dcols[ri-0+1],
                 data: yv
             }]
         },
