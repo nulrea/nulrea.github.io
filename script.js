@@ -15,12 +15,133 @@ const NUMERIC_SUFFIX = [  "",   "k",   "m",   "b",    "t",   "qd",   "qt",   "sx
 
 let is_visible = false
 
+
+// copied from my unused bot
+COL_COMMON = [0x7EEF6D]
+COL_UNUSUAL = [0xFFE65D]
+COL_RARE = [0x4D52E3]
+COL_EPIC = [0x861FDE]
+COL_LEGENDARY = [0xDE1F1F]
+COL_MYTHIC = [0x1FDBDD]
+COL_ULTRA = [0xFF2B75]
+COL_SUPER = [0x2BFFA3]
+
+C_COMMON = COL_COMMON[0]
+C_UNUSUAL = COL_UNUSUAL[0]
+C_RARE = COL_RARE[0]
+C_EPIC = COL_EPIC[0]
+C_LEGENDARY = COL_LEGENDARY[0]
+C_MYTHIC = COL_MYTHIC[0]
+C_ULTRA = COL_ULTRA[0]
+C_SUPER = COL_SUPER[0]
+
+arr_of_cols = [C_COMMON, C_UNUSUAL, C_RARE, C_EPIC, C_LEGENDARY, C_MYTHIC, C_ULTRA, C_SUPER]
+arr_of_dcols = ["#49E831", "#FFDC1B", "#2127D5", "#6D19B4", "#B41919", "#19B1B3" , "#F10054", "#00F189"] //darkened colours (19%)
+probabilities = [0.64, 0.32, 0.16, 0.08, 0.04, 0.02, 0.01, 0.005]
+
 function round(x, a) {
     return 10**a*Math.round(x/10**a)
 }
 
 function f(x) {
     return Number((20*(Math.floor((2*x)*1.05**(2*x-1))+Math.floor((2*x+1)*1.05**(2*x)))).toPrecision(2))
+}
+
+function calculate_function(x, c, a) {
+    let fail = (1 - c) / 4;
+    let current = 5;
+    let pad = 0;
+    const arr = [null, [1], [0], [0], [0], [0]];
+    while (current <= x){
+        arr.shift();
+        while (arr[0][0] < a){
+            for (let i = 0; i < 5; i++)
+                arr[i].shift();
+            pad++;
+        }
+        while (arr[0][-1] < a)
+            arr[0].pop();
+        const temp_arr = [];
+        for (let i = 0; i < arr[0].length + 1; i++)
+            temp_arr.push(0);
+        arr.push(temp_arr);
+        let i = 0;
+        for (let j = 0; j < arr[0].length; j++) {
+            const val = arr[0][j];
+            for (let k = 0; k < 5; k++)
+                arr[k][i] += val*fail;
+            arr[5][i+1] += val*c;
+            i++;
+        }
+        current += 1;
+    }
+    arr.shift();
+    const final = [];
+    for (let i = 0; i < pad; i++)
+        final.push(0);
+    for (let i = 0; i < 4; i++)
+        arr[i].push(0);
+    for (let i = 0; i < arr[4].length; i++){
+        let sum = 0;
+        for (let j = 0; j < 5; j++)
+            sum += arr[j][i];
+        final.push(sum);
+    }
+    return final;
+}
+
+function calculate_func(){
+    const canv = document.getElementById('crafting_result');
+    canv.remove();
+    let newcanv = document.createElement("canvas");
+    newcanv.id = "crafting_result";
+    document.getElementById('graph_container').appendChild(newcanv); // to prevent canvases from overlaping
+    let ri = document.getElementById("crafting_rarity").value;
+    let c = probabilities[ri];
+    let x = document.getElementById("crafting_amount").value;
+    let acc = 10**(0-document.getElementById("crafting_accuracy_magnitude").value)
+    if (x < 5 && 0 <= c <= 1){
+        alert("The amount of petals or the probability in craft must be legit.");
+        return;
+    }
+    if (x >= 100000)
+        alert("Warning: The amount of crafting is too large, the result may take very long to get.");
+    else if (x >= 10000 && acc < 10e-30)
+        alert("Warning: The result is unnecessary accurate and may take long to calculate.");
+    let message_text = document.getElementById("crafting_message_text")
+    let message = "If your screen freeze, reload the page or wait for the result."
+    message_text.value = message;
+    setTimeout(function(){}, 100);
+    const r = calculate_function(x, c, acc);
+    let pad = 0;
+    for (let i = 0; i < r.length; i++)
+        if (r[i] < acc)
+            pad++;
+        else
+            break;
+    const xv = [];
+    const yv = [];
+    let i = pad;
+    while (i < r.length) {
+        xv.push(i);
+        yv.push(r[i]);
+        i++;
+    }
+    new Chart("crafting_result", {
+        type: "bar",
+        data: {
+            labels: xv,
+            datasets: [{
+                backgroundColor: arr_of_cols[ri],
+                hoverBackgroundColor: arr_of_dcols[ri],
+                data: yv
+            }]
+        },
+        options: {
+            legend: {display: false}
+        }
+    });
+    message_text.value = " "
 }
 
 function XP_calculate(level) {
