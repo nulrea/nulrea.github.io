@@ -123,6 +123,8 @@ function calculate_func(){
     const yv = [];
     let i = pad;
     while (i < r.length) {
+        if (r[i] < 10e-5)
+                break;
         xv.push(i);
         yv.push(r[i]);
         i++;
