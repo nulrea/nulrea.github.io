@@ -115,7 +115,7 @@ function calculate_func(){
     const r = calculate_function(x, c, acc);
     let pad = 0;
     for (let i = 0; i < r.length; i++)
-        if (r[i] < acc)
+        if (r[i] < 10e-5)
             pad++;
         else
             break;
@@ -132,8 +132,8 @@ function calculate_func(){
         data: {
             labels: xv,
             datasets: [{
-                backgroundColor: arr_of_cols[ri],
-                hoverBackgroundColor: arr_of_dcols[ri],
+                backgroundColor: arr_of_cols[ri+1],
+                hoverBackgroundColor: arr_of_dcols[ri+1],
                 data: yv
             }]
         },
