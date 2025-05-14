@@ -3,6 +3,23 @@
     font-family: 'Ubuntu', sans-serif;
   }
 
+  html, body {
+    width:  100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  canvas {
+    background-color: #00000000;
+    display: block;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
   input {
     background-color: lightcyan;
   }
@@ -65,57 +82,46 @@
 
   [id*="common"], label[id*="common"] {
     background-color: #7eef6d;
-    color: #7eef6d;
   }
 
   [id*="unusual"], label[id*="unusual"] {
     background-color: #ffe65d;
-    color: #ffe65d;
   }
 
   [id*="rare"], label[id*="rare"] {
     background-color: #4d52e3;
-    color: #4d52e3;
   }
 
   [id*="epic"], label[id*="epic"] {
     background-color: #861fde;
-    color: #861fde;
   }
 
   [id*="legendary"], label[id*="legendary"] {
     background-color: #de1f1f;
-    color: #de1f1f;
   }
 
   [id*="mythic"], label[id*="mythic"] {
     background-color: #1fdbde;
-    color: #1fdbde;
   }
 
   [id*="ultra"], label[id*="ultra"] {
     background-color: #ff2b75;
-    color: #ff2b75;
   }
 
   [id*="super"], label[id*="super"] {
     background-color: #2bffa3;
-    color: #2bffa3;
   }
 
   [id*="celestial"], label[id*="celestial"] {
     background-color: #ffbb25;
-    color: #ffbb25;
   }
 
   [id*="chaos"], label[id*="chaos"] {
     background-color: #321f92;
-    color: #321f92;
   }
 
   [id*="effulgent"], label[id*="effulgent"] {
     background-color: #f4bdf2;
-    color: #f4bdf2;
   }
   
   button {

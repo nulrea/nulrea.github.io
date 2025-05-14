@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" href=".\styles.css">
         <script src="script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <meta name="description" content="A random set of my calculators, nothing much.">
         <meta name="keywords" content="florr.io XP calculator">
         <meta name="author" content="nulrea (florr)">
@@ -160,6 +161,69 @@
                         </td>
                     </tr>
                 </table>
+            </div>
+            <div>
+                <h1>
+                    Crafting Probability Calculator (DO NOT USE)
+                </h1>
+                <table>
+                    <tr>
+                        <td>
+                            Rarity to craft from:
+                        </td>
+                        <td>
+                            <select id="crafting_rarity" name="crafting_rarity">
+                                <option value="0" id="common_option">
+                                    Common
+                                </option>
+                                <option value="1" id="unusual_option">
+                                    Unusual
+                                </option>
+                                <option value="2" id="rare_option">
+                                    Rare
+                                </option>
+                                <option value="3" id="epic_option">
+                                    Epic
+                                </option>
+                                <option value="4" id="legendary_option">
+                                    Legendary
+                                </option>
+                                <option value="5" id="mythic_option">
+                                    Mythic
+                                </option>
+                                <option value="6" id="ultra_option">
+                                    Ultra
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Amount to craft:
+                        </td>
+                        <td>
+                            <input type="number" id="crafting_amount" name="crafting_amount" min="5" max="1000000" value="5">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Accuracy magnitide:
+                        </td>
+                        <td>
+                            <input type="number" id="crafting_accuracy_magnitude" name="accuracy_magnitude" min="10" max="50" value="20">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button onclick="calculate_func()">
+                                Craft
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+                <p id="crafting_message_text">
+                    Note: Putting a large value or a large accuracy magnitude will cook your computer :)
+                <canvas id="crafting_result"></canvas>
             </div>
         </div>
     </body>
