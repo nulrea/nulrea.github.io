@@ -154,7 +154,7 @@ function calculate_func(){
             }
         }
     });
-    message_text.innerText = "" + x + " petals, " + a.toPrecision(5) + " average success attempts.";
+    message_text.innerText = "" + x + " " + RARITY_INDEX[ri] + " petals, " + a.toPrecision(5) + " average success attempts.";
 }
 
 function XP_calculate(level) {
