@@ -110,9 +110,13 @@ function calculate_func(){
         alert("Warning: The result is unnecessary accurate and may take long to calculate.");
     let message_text = document.getElementById("crafting_message_text")
     let message = "If your screen freeze, reload the page or wait for the result."
-    message_text.value = message;
+    message_text.innerText = message;
     setTimeout(function(){}, 100);
     const r = calculate_function(x, c, acc);
+    let a = 0;
+    for (let i = 0; i < r.length; i++) {
+        a += r[i] * i;
+    }
     let pad = 0;
     for (let i = 0; i < r.length; i++)
         if (r[i] < 10e-5)
@@ -140,10 +144,17 @@ function calculate_func(){
             }]
         },
         options: {
-            legend: {display: false}
+            legend: {
+                display: false
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                }
+            }
         }
     });
-    message_text.value = " "
+    message_text.innerText = "" + x + " petals, " + a.toPrecision(5) + " average success attempts.";
 }
 
 function XP_calculate(level) {

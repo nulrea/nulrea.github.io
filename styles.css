@@ -75,7 +75,7 @@
   }
 
   [id*="fact"] {
-    outline: 5px dashed gray;
+    outline: 1px dashed gray;
     background-color: palevioletred;
     padding: 6px;
   }
