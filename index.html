@@ -215,15 +215,24 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
+                        <td>
                             <button onclick="calculate_func()">
                                 Craft
+                            </button>
+                        </td>
+                        <td>
+                            <button onclick="crafting_sim()">
+                                Simulate instead
                             </button>
                         </td>
                     </tr>
                 </table>
                 <p id="crafting_message_text">
                     Note: Putting a large value or a large accuracy magnitude will cook your computer :)
+                </p>
+                <p id="crafting_sim_text">
+                    .
+                </p>
                 <canvas id="crafting_result"></canvas>
             </div>
         </div>
