@@ -162,7 +162,7 @@ function calculate_func(){
             }
         }
     });
-    message_text.innerText = "" + x + " " + RARITY_INDEX[ri] + " petals, " + a.toPrecision(5) + " average success attempts.";
+    message_text.innerText = "" + x + " " + RARITY_INDEX[ri] + " petals, " + a.toPrecision(5) + " average successful attempts.";
     craft_sim();
 }
 
@@ -179,7 +179,7 @@ function craft_sim(){
         } else
             x -= Math.floor(Math.random()*4)+1;
     let out = document.getElementById("crafting_sim_text");
-    out.innerText = "Simulation result: from " + x1 + " " + RARITY_INDEX[ri] + " petals, " + s + " successful attempts, " + x + " remains.";
+    out.innerText = "Simulation result: from " + x1 + " " + RARITY_INDEX[ri] + " petals, " + s + " succeeded attempts, " + x + " remains.";
 }
 
 function XP_calculate(level) {
