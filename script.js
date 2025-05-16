@@ -108,7 +108,7 @@ function calculate_func(){
         alert("Warning: The amount of crafting is too large, the result may take very long to get.");
     else if (x >= 10000 && acc < 10e-30)
         alert("Warning: The result is unnecessary accurate and may take long to calculate.");
-    let message_text = document.getElementById("crafting_message_text")
+    let message_text = document.getElementById("crafting_message_text");
     let message = "If your screen freeze, reload the page or wait for the result."
     message_text.innerText = message;
     setTimeout(function(){}, 100);
@@ -155,6 +155,22 @@ function calculate_func(){
         }
     });
     message_text.innerText = "" + x + " " + RARITY_INDEX[ri] + " petals, " + a.toPrecision(5) + " average success attempts.";
+    craft_sim();
+}
+
+function craft_sim(){
+    let ri = document.getElementById("crafting_rarity").value;
+    let c = probabilities[ri];
+    let x = document.getElementById("crafting_amount").value;
+    let s = 0;
+    while (x >= 5)
+        if (Math.random() < c) {
+            x -= 5;
+            s++;
+        } else
+            x -= Math.floor(Math.random()*4)+1;
+    let out = documemt.getElementById("crafting_sim_text");
+    out.innerText = "Simulation result: " + s + " successful attempts, " + x + " remains.";
 }
 
 function XP_calculate(level) {
