@@ -169,7 +169,7 @@ function craft_sim(){
             s++;
         } else
             x -= Math.floor(Math.random()*4)+1;
-    let out = documemt.getElementById("crafting_sim_text");
+    let out = document.getElementById("crafting_sim_text");
     out.innerText = "Simulation result: " + s + " successful attempts, " + x + " remains.";
 }
 
