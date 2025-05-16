@@ -170,6 +170,7 @@ function craft_sim(){
     let ri = document.getElementById("crafting_rarity").value;
     let c = probabilities[ri];
     let x = document.getElementById("crafting_amount").value;
+    let x1 = x;
     let s = 0;
     while (x >= 5)
         if (Math.random() < c) {
@@ -178,7 +179,7 @@ function craft_sim(){
         } else
             x -= Math.floor(Math.random()*4)+1;
     let out = document.getElementById("crafting_sim_text");
-    out.innerText = "Simulation result: " + s + " successful attempts, " + x + " remains.";
+    out.innerText = "Simulation result: from " + x1 + " " + RARITY_INDEX[ri] + " petals, " + s + " successful attempts, " + x + " remains.";
 }
 
 function XP_calculate(level) {
