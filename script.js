@@ -151,6 +151,14 @@ function calculate_func(){
                 y: {
                     beginAtZero: true,
                 }
+            },
+            hover: {
+                mode: 'index',
+                intersect: false
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false
             }
         }
     });
