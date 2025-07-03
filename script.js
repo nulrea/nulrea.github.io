@@ -199,7 +199,7 @@ function numeric_to_string(number, digit) {
     len = Math.floor(Math.log10(number)) + 1
     suffix = Math.floor((len-1)/3)
     modified = number.toPrecision(digit)  // ???
-    string = modified/10**(3*suffix) + NUMERIC_SUFFIX[suffix]
+    string = Math.round(modified/(10**(3*suffix))*100)/100 + NUMERIC_SUFFIX[suffix]
     return string
 }
 
