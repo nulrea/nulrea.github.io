@@ -19,25 +19,102 @@
             <a href="nulrea.github.io#florr.io_content">
                 florr.io
             </a>
+            <div style="margin-left: 15px;">
+                <a href="#crafting_calculator">
+                    Crafting calculator
+                </a>
+            </div>
+            <div style="margin-left: 15px;">
+                <a href="#xp_calculator">
+                    XP calculator
+                </a>
+            </div>
         </div>
-        <hr>
         <!-- FLORR.IO THINGS -->
         <div id="florr.io_content">
+            <div id="graph_container">
+                <h1>
+                    Crafting Probability Calculator (beta)
+                </h1>
+                <table>
+                    <tr>
+                        <td>
+                            Rarity to craft from:
+                        </td>
+                        <td>
+                            <select id="crafting_rarity" name="crafting_rarity">
+                                <option value="0" id="common_option">
+                                    Common
+                                </option>
+                                <option value="1" id="unusual_option">
+                                    Unusual
+                                </option>
+                                <option value="2" id="rare_option">
+                                    Rare
+                                </option>
+                                <option value="3" id="epic_option">
+                                    Epic
+                                </option>
+                                <option value="4" id="legendary_option">
+                                    Legendary
+                                </option>
+                                <option value="5" id="mythic_option">
+                                    Mythic
+                                </option>
+                                <option value="6" id="ultra_option">
+                                    Ultra
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Amount to craft:
+                        </td>
+                        <td>
+                            <input type="number" id="crafting_amount" name="crafting_amount" min="5" max="1000000" value="5">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Accuracy magnitude:
+                        </td>
+                        <td>
+                            <input type="number" id="crafting_accuracy_magnitude" name="accuracy_magnitude" min="4" max="20" value="20">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button onclick="calculate_func()">
+                                Craft
+                            </button>
+                        </td>
+                        <td>
+                            <button onclick="craft_sim()">
+                                Simulate instead
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+                <p id="crafting_message_text">
+                    Accuracy magnitude is the number of digits after the decimal point, mainly to stop calculating too many unnecessary and insignificant values, improving the results.
+                    <br>
+                    Note: This system is not optimized, therefore inputting a large value is not advised. If you want to do so, put the accuracy magnitude to 15 or lower.
+                </p>
+                <p id="crafting_sim_text">
+                    Scroll down for more calculators.
+                </p>
+                <canvas id="crafting_result"></canvas>
+            </div>
             <div id="fact">
                 <h4>
-                    DID YOU KNOW
+                    CORNER OF THE NERDS
                 </h4>
                 <h5>
-                    The formula of the XP capacity, where your LEVEL is x:
+                    The formula of the XP capacity, where your LEVEL is x (rounded to 2 significant digits):
                 </h5>
                 <p>
                     f(x) = 20×(floor(2x×1.05<sup>2x-1</sup>)+floor((2x+1)×1.05<sup>2x</sup>))
-                </p>
-                <p>
-                    g(x, a) = 10<sup>a</sup>×round(x/10<sup>a</sup>)
-                </p>
-                <p>
-                    XP needed = g(f(x), floor(log<sub>10</sub>f(x))-1)
                 </p>
             </div>
             <div>
@@ -97,7 +174,7 @@
                     </tr>
                 </table>
                 <button onclick="on_calculate_XP()">
-                    SUBMIT
+                    Calculate!
                 </button>
                 <p id="XP_result">
                     The result will be shown here.
@@ -139,8 +216,8 @@
                         </td>
                     </tr>
                 </table>
-                <button onclick="level_difference()" style="margin-bottom: 10px;">
-                    SUBMIT
+                <button onclick="level_difference()">
+                    Calculate!
                 </button>
                 <br>
                 <!--
@@ -158,78 +235,6 @@
                         </td>
                     </tr>
                 </table>
-            </div>
-            <div id="graph_container">
-                <h1>
-                    Crafting Probability Calculator (beta)
-                </h1>
-                <table>
-                    <tr>
-                        <td>
-                            Rarity to craft from:
-                        </td>
-                        <td>
-                            <select id="crafting_rarity" name="crafting_rarity">
-                                <option value="0" id="common_option">
-                                    Common
-                                </option>
-                                <option value="1" id="unusual_option">
-                                    Unusual
-                                </option>
-                                <option value="2" id="rare_option">
-                                    Rare
-                                </option>
-                                <option value="3" id="epic_option">
-                                    Epic
-                                </option>
-                                <option value="4" id="legendary_option">
-                                    Legendary
-                                </option>
-                                <option value="5" id="mythic_option">
-                                    Mythic
-                                </option>
-                                <option value="6" id="ultra_option">
-                                    Ultra
-                                </option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Amount to craft:
-                        </td>
-                        <td>
-                            <input type="number" id="crafting_amount" name="crafting_amount" min="5" max="1000000" value="5">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Accuracy magnitude:
-                        </td>
-                        <td>
-                            <input type="number" id="crafting_accuracy_magnitude" name="accuracy_magnitude" min="10" max="50" value="20">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button onclick="calculate_func()">
-                                Craft
-                            </button>
-                        </td>
-                        <td>
-                            <button onclick="craft_sim()">
-                                Simulate instead
-                            </button>
-                        </td>
-                    </tr>
-                </table>
-                <p id="crafting_message_text">
-                    Note: Putting a large value or a large accuracy magnitude will cook your computer :)
-                </p>
-                <p id="crafting_sim_text">
-                    .
-                </p>
-                <canvas id="crafting_result"></canvas>
             </div>
         </div>
     </body>

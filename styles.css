@@ -1,6 +1,6 @@
   body {
-    background-color: powderblue;
-    font-family: 'Ubuntu', sans-serif;
+    background-color: #b7d7e8;
+    font-family: 'Ubuntu', 'Consolas', sans-serif;
   }
 
   html, body {
@@ -21,62 +21,44 @@
   }
 
   input {
-    background-color: lightcyan;
+    background-color: #daebe8;
+    border: none;
   }
 
   input, select {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Ubuntu', 'Consolas', sans-serif;
   }
 
   select {
-    background-color: lightcyan;
+    background-color: #daebe8;
   }
 
   h1, h2, h3, h4, h5 {
-    text-shadow: 2px 2px aquamarine;
+    text-shadow: 2px 2px #b7d7e8;
   }
 
   a, p, td {
-    text-shadow: 1px 1px aquamarine;
+    text-shadow: 1px 1px #b7d7e8;
   }
 
   div[id*="fact"] h4, div[id*="fact"] h5, div[id*="fact"] p {
-    text-shadow: 1px 1px rosybrown;
+    text-shadow: 1px 1px #f9ccac;
   }
 
-  a:link {
-    color: lightskyblue;
+  a {
+    color: #87bdd8;
     background-color: transparent;
     text-decoration: none;
-  }
-  
-  a:visited {
-    color: blueviolet;
-    background-color: transparent;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    color: lightskyblue;
-    background-color: transparent;
-    text-decoration: underline;
-  }
-  
-  a:active {
-    color: white;
-    background-color: transparent;
-    text-decoration: underline;
   }
 
   div[id*="content"] {
-    outline: 2px double aqua;
-    background-color: lightcyan;
+    outline: 2px double #daebe8;
+    background-color: #cfe0e8;
     padding: 10pt;
   }
 
   [id*="fact"] {
-    outline: 1px dashed gray;
-    background-color: palevioletred;
+    background-color: #fbefcc;
     padding: 6px;
   }
 
@@ -112,24 +94,23 @@
     background-color: #2bffa3;
   }
 
-  [id*="celestial"], label[id*="celestial"] {
-    background-color: #ffbb25;
-  }
-
-  [id*="chaos"], label[id*="chaos"] {
-    background-color: #321f92;
-  }
-
-  [id*="effulgent"], label[id*="effulgent"] {
-    background-color: #f4bdf2;
+  [id*="unique"], label[id*="unique"] {
+    background-color: #555555;
   }
   
   button {
-    background-color: lightsteelblue;
-    border: 1px solid mediumaquamarine;
+    background-color: #b7d7e8;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 2px #87bdd8;
     font-family: 'Ubuntu', sans-serif;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 10px;
   }
 
   button:hover {
-    background-color: steelblue;
+    box-shadow: none;
+    margin-top: 4px;
+    margin-bottom: 0px;
   }

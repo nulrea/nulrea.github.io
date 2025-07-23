@@ -104,6 +104,10 @@ function calculate_func(){
         alert("The amount of petals or the probability in craft must be legit.");
         return;
     }
+    if (x > 1000000){
+        alert("You cannot have more than 1,000,000 petals of the same type and rarity at the same, therefore I will not calculate >:)\n");
+        return;
+    }
     if (x >= 100000)
         alert("Warning: The amount of crafting is too large, the result may take very long to get.");
     else if (x >= 10000 && acc < 10e-30)
@@ -167,6 +171,9 @@ function calculate_func(){
 }
 
 function craft_sim(){
+    if (document.getElementById("crafting_amount").value > 1000000) {
+        alert("You are killing your computer, just stop ;-;\nReload the page to unfreeze the website.");
+    }
     let ri = document.getElementById("crafting_rarity").value;
     let c = probabilities[ri];
     let x = document.getElementById("crafting_amount").value;
