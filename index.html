@@ -2,12 +2,12 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href=".\styles.css">
-        <title>Custom calculators for florr.io game.</title>
+        <title>Fanmade florr.io calculators</title>
         <script src="script.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <meta name="description" content="florr.io calculators done by me.">
         <meta name="keywords" content="florr.io XP calculator">
-        <meta name="author" content="nulrea (florr)">
+        <meta name="author" content="nulrea from florr.io">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>title</title>
     </head>
@@ -20,12 +20,12 @@
                 florr.io
             </a>
             <div style="margin-left: 15px;">
-                <a href="#crafting_calculator">
+                <a href="nulrea.github.io#crafting_calculator">
                     Crafting calculator
                 </a>
             </div>
             <div style="margin-left: 15px;">
-                <a href="#xp_calculator">
+                <a href="nulrea.github.io#xp_calculator">
                     XP calculator
                 </a>
             </div>
@@ -33,7 +33,7 @@
         <!-- FLORR.IO THINGS -->
         <div id="florr.io_content">
             <div id="graph_container">
-                <h1>
+                <h1 id="crafting_calculator">
                     Crafting Probability Calculator (beta)
                 </h1>
                 <table>
@@ -106,21 +106,21 @@
                 </p>
                 <canvas id="crafting_result"></canvas>
             </div>
-            <div id="fact">
-                <h4>
-                    CORNER OF THE NERDS
-                </h4>
-                <h5>
-                    The formula of the XP capacity, where your LEVEL is x (rounded to 2 significant digits):
-                </h5>
-                <p>
-                    f(x) = 20×(floor(2x×1.05<sup>2x-1</sup>)+floor((2x+1)×1.05<sup>2x</sup>))
-                </p>
-            </div>
             <div>
-                <h1>
+                <h1 id="xp_calculator">
                     XP calculator
                 </h1>
+                <div id="fact">
+                    <h4>
+                        CORNER OF THE NERDS
+                    </h4>
+                    <h5>
+                        The formula of the XP capacity, where your LEVEL is x (rounded to 2 significant digits):
+                    </h5>
+                    <p>
+                        f(x) = 20×(floor(2x×1.05<sup>2x-1</sup>)+floor((2x+1)×1.05<sup>2x</sup>))
+                    </p>
+                </div>
                 <br>
                 <table>
                     <tr>
@@ -133,10 +133,18 @@
                     </tr>
                     <tr>
                         <td>
-                            XP:
+                            Current XP:
                         </td>
                         <td>
                             <input type="number" id="XP_input" name="XP_input" min="0" value="0">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            XP changes:
+                        </td>
+                        <td>
+                            <input type="number" id="petal_input" name="petal_input" min="0" value="0">
                         </td>
                     </tr>
                     <tr>
@@ -155,33 +163,13 @@
                         </td>
                     </tr>
                 </table>
-                <h2>
-                    Changes:
-                </h2>
-                <!--
-                <button onclick="Extension_toggle()" style="font-size: large;" class="button_toggle">
-                    XPAND
-                </button>
-                -->
-                <table>
-                    <tr>
-                        <td>
-                            XP:
-                        </td>
-                        <td>
-                            <input type="number" id="petal_input" name="petal_input" min="0" value="0">
-                        </td>
-                    </tr>
-                </table>
                 <button onclick="on_calculate_XP()">
                     Calculate!
                 </button>
-                <p id="XP_result">
-                    The result will be shown here.
-                </p>
-                <h1>
+                <p id="XP_result"></p>
+                <h2>
                     XP difference calculator
-                </h1>
+                </h2>
                 <table>
                     <tr>
                         <td>
@@ -231,7 +219,7 @@
                             XP Difference:
                         </td>
                         <td id="xp_dif">
-                            NaN
+                            hi
                         </td>
                     </tr>
                 </table>
