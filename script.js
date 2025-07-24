@@ -279,15 +279,39 @@ function numeric_to_string_(number) {
 }
 
 function level_difference() {
-    if (Number(document.getElementById("b_level_input").value) > Number(document.getElementById("a_level_input").value)) {  
-        alert("Level before is greater than level after.")
+    let level1 = Number(document.getElementById("a_level_input").value),
+        level2 = Number(document.getElementById("b_level_input").value),
+        xp1 = Number(document.getElementById("a_XP_input").value),
+        xp2 = Number(document.getElementById("b_XP_input").value);
+    if (level1 <= 0 || level2 <= 0) {
+        alert("Error: Level must be positive, right?")
         return
-    } else if ((Number(document.getElementById("b_level_input").value) === Number(document.getElementById("a_level_input").value)) && (Number(document.getElementById("b_XP_input")) > Number(document.getElementById("a_XP_input")))) {
-        alert("XP before is greater than XP after.")
     }
-    let XP = Number(document.getElementById("a_XP_input").value) - Number(document.getElementById("b_XP_input").value)
-    for (let i = Number(document.getElementById("b_level_input").value); i < Number(document.getElementById("a_level_input").value); i++) {
-        XP += XP_calculate(i)
+    if (xp1 < 0 || xp2 < 0) {
+        alert("Error: XP must be nonnegative, right?")
+        return
     }
-    document.getElementById("xp_dif").innerText = numeric_to_string_(XP)
+    let output = 0;
+    // case 1: levels are equal
+    if (level1 == level2) {
+        output = abs(xp1 - xp2);
+    } else {
+        // case 2: levels are not equal
+        if (level1 > level2) {
+            let temp = level1;
+            level1 = level2;
+            level2 = temp;
+            temp = xp1;
+            xp1 = xp2;
+            xp2 = temp;
+        }
+        output += XP_calculate(level1) - xp1;
+        level1++;
+        while (level1 < level2) {
+            output += XP_calculate(level1);
+            level1++;
+        }
+        output += xp2;
+    }
+    document.getElementById("xp_dif").innerText = numeric_to_string_(output);
 }
