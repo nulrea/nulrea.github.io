@@ -190,12 +190,14 @@ function craft_sim(){
 }
 
 function XP_calculate(level) {
-    if (level == 1) {
-        return 15
-    } else if (level > 7137) {
-        return Infinity
-    } else {
-        return f(level)
+    if (level <= 0) {
+        alert("Error: Level must be positive, right?");
+    } 
+    else if (level == 1) return 15;
+    else if (level == 2) return 210;
+    else if (level > 7137) return Infinity;
+    else {
+        return f(level);
     }
 }
 
@@ -211,8 +213,12 @@ function numeric_to_string(number, digit) {
 }
 
 function on_calculate_XP() {
+    if (Number(document.getElementById("level_input").value) <= 0) {
+        alert("Error: Level must be positive, right?")
+        return;
+    }
     if (XP_calculate(Number(document.getElementById("level_input").value)) <= Number(document.getElementById("XP_input").value)) {
-        alert("The XP of this level is " + numeric_to_string(XP_calculate(Number(document.getElementById("level_input").value)), 2) + " but the XP is larger than this.")
+        alert("You cannot have that much XP at level " + document.getElementById("level_input").value + "!")
         return
     }
     let XP = Number(document.getElementById("petal_input").value),
@@ -222,7 +228,9 @@ function on_calculate_XP() {
         alert("Your current XP must be nonnegative, right?")
         return
     }
-    if (document.getElementById("XP_calculate_type").value == "after") {
+    let invalid = false
+    if (XP < 0) {invalid = true; XP = -XP}
+    if (invalid ^ (document.getElementById("XP_calculate_type").value == "after")) {
         XP+=rXP
         while (XP-XP_calculate(level) >= 0) {
             XP-=XP_calculate(level)
@@ -231,12 +239,12 @@ function on_calculate_XP() {
     } else {
         rXP -= XP
         while (rXP < 0) {
-            level--
-            XP=XP_calculate(level)
-            if (level <= 0) {
-                alert("Error: Level gone below 1 when still have " + -rXP + " XP remain.")
-                return
+            level--;
+            if (level == 0) {
+                alert("Error: Level gone below 1.");
+                return;
             }
+            XP=XP_calculate(level)
             rXP += XP
         }
         XP = rXP
