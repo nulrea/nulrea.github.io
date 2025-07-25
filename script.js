@@ -134,9 +134,10 @@ function calculate_func(){
         if (r[i] < 10e-5)
                 break;
         xv.push(i);
-        yv.push(r[i]);
+        yv.push(r[i] * 100);
         i++;
     }
+    // Add percentage symbol to y-axis ticks and tooltips
     new Chart("crafting_result", {
         type: "bar",
         data: {
@@ -148,19 +149,29 @@ function calculate_func(){
             }]
         },
         options: {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return Number(context.parsed.y.toFixed(5)) + '%';
+                        }
+                    }
+                }
+            },
             legend: {
                 display: false
             },
             scales: {
                 y: {
                     beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        }
+                    }
                 }
             },
-            hover: {
-                mode: 'index',
-                intersect: false
-            },
-            tooltips: {
+            interaction: {
                 mode: 'index',
                 intersect: false
             }
