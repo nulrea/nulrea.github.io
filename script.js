@@ -156,10 +156,10 @@ function calculate_func(){
                             return Number(context.parsed.y.toFixed(5)) + '%';
                         }
                     }
+                },
+                legend: {
+                    display: false
                 }
-            },
-            legend: {
-                display: false
             },
             scales: {
                 y: {
