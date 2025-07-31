@@ -90,6 +90,55 @@ function calculate_function(x, c, a) {
     return final;
 }
 
+function new_graph(id, labels, data, color, dcolor) {
+    const canv = document.getElementById(id);
+    if (canv) {
+        canv.remove();
+    }
+    let newcanv = document.createElement("canvas");
+    newcanv.id = id;
+    document.getElementById('graph_container').appendChild(newcanv); // to prevent canvases from overlapping
+        new Chart(id, {
+        type: "bar",
+        data: {
+            labels: labels,
+            datasets: [{
+                backgroundColor: color,
+                hoverBackgroundColor: dcolor,
+                data: data
+            }]
+        },
+        options: {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return Number(context.parsed.y.toFixed(5)) + '%';
+                        }
+                    }
+                },
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        }
+                    }
+                }
+            },
+            interaction: {
+                mode: 'index',
+                intersect: false
+            }
+        }
+    });
+}
+
 function calculate_func(){
     const canv = document.getElementById('crafting_result');
     canv.remove();
@@ -138,45 +187,7 @@ function calculate_func(){
         i++;
     }
     // Add percentage symbol to y-axis ticks and tooltips
-    new Chart("crafting_result", {
-        type: "bar",
-        data: {
-            labels: xv,
-            datasets: [{
-                backgroundColor: arr_of_cols[ri-0+1],
-                hoverBackgroundColor: arr_of_dcols[ri-0+1],
-                data: yv
-            }]
-        },
-        options: {
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            return Number(context.parsed.y.toFixed(5)) + '%';
-                        }
-                    }
-                },
-                legend: {
-                    display: false
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        callback: function(value) {
-                            return value + '%';
-                        }
-                    }
-                }
-            },
-            interaction: {
-                mode: 'index',
-                intersect: false
-            }
-        }
-    });
+    new_graph("crafting_result", xv, yv, arr_of_cols[ri-0+1], arr_of_dcols[ri-0+1]);
     message_text.innerText = "" + x + " " + RARITY_INDEX[ri] + " petals, " + a.toPrecision(5) + " average successful attempts.";
     craft_sim();
 }
