@@ -237,11 +237,10 @@ function numeric_to_string(number) {
     let str = number.toString();
     if (str.includes("e")) {
         let parts = str.split("e");
-        let base = parts[0];
+        str = parts[0];
         len = parseInt(parts[1]) + 1;
-        base = base.replace(".", "");
-        base = padEnd_replace(base, len, "0");
-        str = base;
+        str = str.replace(".", "");
+        str = padEnd_replace(str, len, "0");
     } else {
         len = str.length;
     }
