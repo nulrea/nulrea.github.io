@@ -223,15 +223,33 @@ function XP_calculate(level) {
     }
 }
 
-function numeric_to_string(number, digit) {
+function numeric_to_string(number) {
     // get digits
     if (number <= 0) return 0
-    if (number === Infinity) return undefined
-    len = Math.floor(Math.log10(number)) + 1
-    suffix = Math.floor((len-1)/3)
-    modified = number.toPrecision(digit)  // ???
-    string = Math.round(modified/(10**(3*suffix))*100)/100 + NUMERIC_SUFFIX[suffix]
-    return string
+    if (number === Infinity) return 'Too much, cannot handle'
+    let str = number.toString(),
+    len = str.length,
+    suffix = Math.floor((len-1)/3);
+    if (len <= 3) return str;
+    if (len % 3 == 0) {
+        str = str.slice(0, 3);
+    } else {
+        str = str.slice(0, len % 3) + "." + str.slice(len % 3, 3);
+        let p = 3;
+        while (!![]) {
+            if (str[p] == "0") {
+                str = str.slice(0, p);
+                p--;
+                continue;
+            }
+            if (str[p] == ".") {
+                str = str.slice(0, p);
+                break;
+            }
+            break;
+        }
+    }
+    return str + NUMERIC_SUFFIX[suffix];
 }
 
 function on_calculate_XP() {
@@ -271,7 +289,7 @@ function on_calculate_XP() {
         }
         XP = rXP
     }
-    document.getElementById("XP_result").innerText = "Level " + level + ": " + XP + "/" + numeric_to_string(XP_calculate(level), 2) + " (" + numeric_to_string(XP, 3) + ", " + (XP/XP_calculate(level)*100).toPrecision(4) + "%)"
+    document.getElementById("XP_result").innerText = "Level " + level + ": " + XP + "/" + numeric_to_string(XP_calculate(level)) + " (" + numeric_to_string(XP) + ", " + (XP/XP_calculate(level)*100).toPrecision(4) + "%)"
     return
 }
 
@@ -297,7 +315,7 @@ function rename_btns(string_rename) {
 }
 
 function numeric_to_string_(number) {
-    return number + " (" + numeric_to_string(number, 3) + ")"
+    return number + " (" + numeric_to_string(number) + ")"
 }
 
 function level_difference() {
