@@ -14,7 +14,7 @@ const NUMERIC_SUFFIX = [  "",   "k",   "m",   "b",    "t",   "qd",   "qt",   "sx
         CORRES_VALUE = [       1,         5,     50,     500,      10000,   500000, 50000000, 5000000000, 1000000000000, 500000000000000, 1000000000000000000]
 
 let is_visible = false
-
+const _ = [0]
 
 // copied from my unused bot
 COL_COMMON = ["#7EEF6D"]
@@ -223,13 +223,29 @@ function XP_calculate(level) {
     }
 }
 
+function padEnd_replace(str, len, char) {
+    if (str.length >= len) return str;
+    let padding = char.repeat(len - str.length);
+    return str + padding;
+}
+
 function numeric_to_string(number) {
     // get digits
+    let len;
     if (number <= 0) return 0
     if (number === Infinity) return 'Too much, cannot handle'
-    let str = number.toString(),
-    len = str.length,
-    suffix = Math.floor((len-1)/3);
+    let str = number.toString();
+    if (str.includes("e")) {
+        let parts = str.split("e");
+        let base = parts[0];
+        len = parseInt(parts[1]) + 1;
+        base = base.replace(".", "");
+        base = padEnd_replace(base, len, "0");
+        str = base;
+    } else {
+        len = str.length;
+    }
+    let suffix = Math.floor((len-1)/3);
     if (len <= 3) return str;
     if (len % 3 == 0) {
         str = str.slice(0, 3);
