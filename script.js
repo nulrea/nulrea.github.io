@@ -13,7 +13,29 @@ const NUMERIC_SUFFIX = [  "",   "k",   "m",   "b",    "t",   "qd",   "qt",   "sx
         RARITY_INDEX = ["common", "unusual", "rare", "epic", "legendary", "mythic",  "ultra",    "super",   "celestial",         "chaos",         "effulgent"],
         CORRES_VALUE = [       1,         5,     50,     500,      10000,   500000, 50000000, 5000000000, 1000000000000, 500000000000000, 1000000000000000000]
 
+function update_ADVANCED_MODE() {
+    document.querySelectorAll(".advanced_mode").forEach(function(element) {
+        if (ADVANCED_MODE) {
+            element.style.display = "table-row";
+        } else {
+            element.style.display = "none";
+        }
+    });
+}
+
 let is_visible = false
+let ADVANCED_MODE = false
+function ADVANCED_MODE_toggle() {
+    ADVANCED_MODE = !ADVANCED_MODE
+    const adv = document.getElementById("advanced_mode");
+    if (ADVANCED_MODE) {
+        document.getElementById("advanced_mode_btn").innerText = "Disable advanced mode";
+    } else {
+        document.getElementById("advanced_mode_btn").innerText = "Enable advanced mode";
+    }
+    update_ADVANCED_MODE();
+}
+
 const _ = [0]
 
 // copied from my unused bot

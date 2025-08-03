@@ -30,6 +30,11 @@
                 </a>
             </div>
         </div>
+        <div style="padding: 10px;">
+        <button onclick="ADVANCED_MODE_toggle()" class="button_toggle" id="advanced_mode_btn">
+            Enable advanced mode
+        </button>
+        </div>
         <!-- FLORR.IO THINGS -->
         <div id="florr.io_content">
             <div id="graph_container">
@@ -75,12 +80,12 @@
                             <input type="number" id="crafting_amount" name="crafting_amount" min="5" max="1000000" value="5">
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="advanced_mode" style="display: none;">
                         <td>
                             Accuracy magnitude:
                         </td>
                         <td>
-                            <input type="number" id="crafting_accuracy_magnitude" name="accuracy_magnitude" min="4" max="20" value="20">
+                            <input type="number" id="crafting_accuracy_magnitude" name="accuracy_magnitude" min="4" max="20" value="15">
                         </td>
                     </tr>
                     <tr>
@@ -97,9 +102,7 @@
                     </tr>
                 </table>
                 <p id="crafting_message_text">
-                    Accuracy magnitude is the number of digits after the decimal point, mainly to stop calculating too many unnecessary and insignificant values, improving the results.
-                    <br>
-                    Note: This system is not optimized, therefore inputting a large value is not advised. If you want to do so, put the accuracy magnitude to 15 or lower.
+                    .
                 </p>
                 <p id="crafting_sim_text">
                     Scroll down for more calculators.
