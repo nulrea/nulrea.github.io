@@ -206,16 +206,28 @@
                             <input type="number" id="a_XP_input" name="XP_input" min="0" value="0" step="1">
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <button onclick="level_difference()">
+                                Calculate!
+                            </button>
+                        </td>
+                        <td>
+                            <button onclick="ii[0]=!ii[0];if(ii[0]){document.getElementById('xp_table').style.display='block';document.getElementById('toggle_xp_table').innerText='Hide XP per level';}else{document.getElementById('xp_table').style.display='none';document.getElementById('toggle_xp_table').innerText='Show XP per level';}level_difference()" id="toggle_xp_table">
+                                Show XP per level
+                            </button>
+                        </td>
+                    </tr>
                 </table>
-                <button onclick="level_difference()">
-                    Calculate!
-                </button>
                 <br>
                 <!--
                 <button onclick="Extension_toggle()" style="font-size: large;" class="button_toggle">
                     XPAND
                 </button>
                 -->
+                <p id="xp_table" style="display: none;">
+                    Press "Calculate!" to show.
+                </p>
                 <table>
                     <tr>
                         <td>

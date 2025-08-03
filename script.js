@@ -23,6 +23,8 @@ function update_ADVANCED_MODE() {
     });
 }
 
+const ii = [false,]
+
 let is_visible = false
 let ADVANCED_MODE = false
 function ADVANCED_MODE_toggle() {
@@ -366,18 +368,20 @@ function level_difference() {
         return
     }
     let output = 0;
+    let temp = 0;
     // case 1: levels are equal
     if (level1 == level2) {
-        output = abs(xp1 - xp2);
+        output = Math.abs(xp1 - xp2);
     } else {
         // case 2: levels are not equal
         if (level1 > level2) {
-            let temp = level1;
+            temp = level1;
             level1 = level2;
             level2 = temp;
-            temp = xp1;
+            temp = level1
+            let temp2 = xp1;
             xp1 = xp2;
-            xp2 = temp;
+            xp2 = temp2;
         }
         output += XP_calculate(level1) - xp1;
         level1++;
@@ -387,5 +391,12 @@ function level_difference() {
         }
         output += xp2;
     }
+    let table_str = ""
+    for (let s = temp; s <= level2; s++) {
+        let new_str = "Level " + s + ": " + numeric_to_string_(XP_calculate(s));
+        table_str = table_str.concat(new_str, "\n");
+    }
+    console.log(table_str);
+    document.getElementById("xp_table").innerText = table_str;
     document.getElementById("xp_dif").innerText = numeric_to_string_(output);
 }
