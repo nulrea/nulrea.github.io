@@ -77,7 +77,7 @@
                             Amount to craft:
                         </td>
                         <td>
-                            <input type="number" id="crafting_amount" name="crafting_amount" min="5" max="1000000" value="5">
+                            <input type="number" id="crafting_amount" name="crafting_amount" min="5" max="1000000" value="5" step="1">
                         </td>
                     </tr>
                     <tr class="advanced_mode" style="display: none;">
@@ -85,24 +85,24 @@
                             Accuracy magnitude:
                         </td>
                         <td>
-                            <input type="number" id="crafting_accuracy_magnitude" name="accuracy_magnitude" min="4" max="20" value="15">
+                            <input type="number" id="crafting_accuracy_magnitude" name="accuracy_magnitude" min="4" max="20" value="15" step="1">
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <button onclick="calculate_func()">
-                                Craft
+                                Calculate the Probability
                             </button>
                         </td>
                         <td>
                             <button onclick="craft_sim()">
-                                Simulate instead
+                                Simulate a craft
                             </button>
                         </td>
                     </tr>
                 </table>
                 <p id="crafting_message_text">
-                    .
+                    Left button to show probability (if the value is small enough), right button to simulate, and gives a close approximation.
                 </p>
                 <p id="crafting_sim_text">
                     Scroll down for more calculators.
@@ -131,7 +131,7 @@
                             Level: 
                         </td>
                         <td>
-                            <input type="number" id="level_input" name="level_input" min="1" value="1">
+                            <input type="number" id="level_input" name="level_input" min="1" value="1" step="1">
                         </td>
                     </tr>
                     <tr>
@@ -139,7 +139,7 @@
                             Current XP:
                         </td>
                         <td>
-                            <input type="number" id="XP_input" name="XP_input" min="0" value="0">
+                            <input type="number" id="XP_input" name="XP_input" min="0" value="0" step="1">
                         </td>
                     </tr>
                     <tr>
@@ -147,7 +147,7 @@
                             XP changes:
                         </td>
                         <td>
-                            <input type="number" id="petal_input" name="petal_input" min="0" value="0">
+                            <input type="number" id="petal_input" name="petal_input" min="0" value="0" step="1">
                         </td>
                     </tr>
                     <tr>
@@ -179,7 +179,7 @@
                             Current Level: 
                         </td>
                         <td>
-                            <input type="number" id="b_level_input" name="level_input" min="1" value="1">
+                            <input type="number" id="b_level_input" name="level_input" min="1" value="1" step="1">
                         </td>
                     </tr>
                     <tr>
@@ -187,7 +187,7 @@
                             Current XP:
                         </td>
                         <td>
-                            <input type="number" id="b_XP_input" name="XP_input" min="0" value="0">
+                            <input type="number" id="b_XP_input" name="XP_input" min="0" value="0" step="1">
                         </td>
                     </tr>
                     <tr>
@@ -195,7 +195,7 @@
                             Goal Level: 
                         </td>
                         <td>
-                            <input type="number" id="a_level_input" name="level_input" min="1" value="1">
+                            <input type="number" id="a_level_input" name="level_input" min="1" value="1" step="1">
                         </td>
                     </tr>
                     <tr>
@@ -203,7 +203,7 @@
                             Goal XP:
                         </td>
                         <td>
-                            <input type="number" id="a_XP_input" name="XP_input" min="0" value="0">
+                            <input type="number" id="a_XP_input" name="XP_input" min="0" value="0" step="1">
                         </td>
                     </tr>
                 </table>

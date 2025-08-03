@@ -210,17 +210,14 @@ function calculate_func(){
     }
     // Add percentage symbol to y-axis ticks and tooltips
     new_graph("crafting_result", xv, yv, arr_of_cols[ri-0+1], arr_of_dcols[ri-0+1]);
-    message_text.innerText = "" + x + " " + RARITY_INDEX[ri] + " petals, " + a.toPrecision(5) + " average successful attempts.";
+    message_text.innerText = "" + x + " " + RARITY_INDEX[ri] + " petals, " + Math.round((a + Number.EPSILON) * 100) / 100 + " average successful attempts.";
     craft_sim();
 }
 
 function craft_sim(){
-    if (document.getElementById("crafting_amount").value > 1000000) {
-        alert("You are killing your computer, just stop ;-;\nReload the page to unfreeze the website.");
-    }
     let ri = document.getElementById("crafting_rarity").value;
+    let x = document.getElementById("crafting_amount").value-0;
     let c = probabilities[ri];
-    let x = document.getElementById("crafting_amount").value;
     let x1 = x;
     let s = 0;
     while (x >= 5)
@@ -230,7 +227,7 @@ function craft_sim(){
         } else
             x -= Math.floor(Math.random()*4)+1;
     let out = document.getElementById("crafting_sim_text");
-    out.innerText = "Simulation result: from " + x1 + " " + RARITY_INDEX[ri] + " petals, " + s + " succeeded attempts, " + x + " remains.";
+    out.innerText = "Simulation result: from " + x1 + " " + RARITY_INDEX[ri] + " petals, " + s + " succeeded attempts, " + x + " remains.\nFast approximation: " + Math.round(((x1-2.5*(1-c))/(2.5/c+2.5)+Number.EPSILON)*100)/100 + " succeeded attempts.";
 }
 
 function XP_calculate(level) {
