@@ -372,6 +372,7 @@ function level_difference() {
     // case 1: levels are equal
     if (level1 == level2) {
         output = Math.abs(xp1 - xp2);
+        temp = level1;
     } else {
         // case 2: levels are not equal
         if (level1 > level2) {
