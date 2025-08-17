@@ -170,7 +170,10 @@ function calculate_func(){
     newcanv.id = "crafting_result";
     document.getElementById('graph_container').appendChild(newcanv); // to prevent canvases from overlaping
     let ri = document.getElementById("crafting_rarity").value;
-    let c = probabilities[ri];
+    let c = document.getElementById("crafting_custom_probability").value;
+    if (c <= 0 || c >= 100)
+        c = probabilities[ri];
+    else c /= 100;
     let x = document.getElementById("crafting_amount").value;
     let acc = 10**(0-document.getElementById("crafting_accuracy_magnitude").value)
     if (x < 5 && 0 <= c <= 1){
@@ -210,8 +213,18 @@ function calculate_func(){
         yv.push(r[i] * 100);
         i++;
     }
+    // colors
+    let color_ = document.getElementById("crafting_custom_bar_color1").value;
+    let color_2 = color_;
+    if (color_ === "#000000")
+        color_ = document.getElementById("crafting_custom_bar_color2").value;
+        color_2 = color_;
+    if (color_ === "#000000" || color_ === "" || color_ === "black"){
+        color_ = arr_of_cols[ri-0+1];
+        color_2 = arr_of_dcols[ri-0+1];
+    }
     // Add percentage symbol to y-axis ticks and tooltips
-    new_graph("crafting_result", xv, yv, arr_of_cols[ri-0+1], arr_of_dcols[ri-0+1]);
+    new_graph("crafting_result", xv, yv, color_, color_2);
     message_text.innerText = "" + x + " " + RARITY_INDEX[ri] + " petals, " + Math.round((a + Number.EPSILON) * 100) / 100 + " average successful attempts.";
     craft_sim();
 }
@@ -219,7 +232,10 @@ function calculate_func(){
 function craft_sim(){
     let ri = document.getElementById("crafting_rarity").value;
     let x = document.getElementById("crafting_amount").value-0;
-    let c = probabilities[ri];
+    let c = document.getElementById("crafting_custom_probability").value;
+    if (c <= 0 || c >= 100)
+        c = probabilities[ri];
+    else c /= 100;
     let x1 = x;
     let s = 0;
     while (x >= 5)
@@ -334,7 +350,7 @@ function Extension_toggle() {
     for (let i = 0; i < obj.length; i++) {
         if (is_visible) {
             obj[i].style = "display: none"
-            rename_btns("XPAND")
+            rename_btns("EXPAND")
         } else {
             obj[i].style = ""
             rename_btns("COLLAPSE")

@@ -80,14 +80,38 @@
                             <input type="number" id="crafting_amount" name="crafting_amount" min="5" max="1000000" value="5" step="1">
                         </td>
                     </tr>
+                    </tr>
                     <tr class="advanced_mode" style="display: none;">
                         <td>
-                            Accuracy magnitude:
+                            <abbv title="Must be a value from 0 to 100 excluding both ends. If it is outside, uses the default value.">Custom probability in percentage:</abbv>
                         </td>
                         <td>
-                            <input type="number" id="crafting_accuracy_magnitude" name="accuracy_magnitude" min="4" max="20" value="15" step="1">
+                            <input type="number" id="crafting_custom_probability" name="custom_probability" min="0" max="100" value="0" step="1">
                         </td>
                     </tr>
+                    <tr class="advanced_mode" style="display: none;">
+                        <td>
+                            <abbr title="If not working or set to black, uses the bottom input.">Custom bar color</abbr>:
+                        </td>
+                        <td>
+                            <input type="color" id="crafting_custom_bar_color1" name="custom_bar_color" value="#000000">
+                        </td>
+                    </tr>
+                    <tr class="advanced_mode" style="display: none;">
+                        <td>
+                            <abbr title="If this is set to black, uses the default one.">Custom bar color (fallback)</abbr>:
+                        </td>
+                        <td>
+                            <input type="text" id="crafting_custom_bar_color2" name="custom_bar_color_fallback" value="#000000">
+                        </td>
+                    </tr>
+                    <tr class="advanced_mode" style="display: none;">
+                        <td>
+                            Custom accuracy:
+                        </td>
+                        <td>
+                            <input type="number" id="crafting_accuracy_magnitude" name="accuracy_magnitude" min="6" max="325" value="10" step="1">
+                        </td>
                     <tr>
                         <td>
                             <button onclick="calculate_func()">
