@@ -80,10 +80,17 @@
                             <input type="number" id="crafting_amount" name="crafting_amount" min="5" max="1000000" value="5" step="1">
                         </td>
                     </tr>
+                    <tr class="advanced_mode" style="display: none;">
+                        <td>
+                            <abbv title="Overwrites the default rarity name if this field is not blank.">Custom name:</abbv>
+                        </td>
+                        <td>
+                            <input type="text" id="crafting_custom_name" name="custom_name" value="">
+                        </td>
                     </tr>
                     <tr class="advanced_mode" style="display: none;">
                         <td>
-                            <abbv title="Must be a value from 0 to 100 excluding both ends. If it is outside, uses the default value.">Custom probability in percentage:</abbv>
+                            <abbv title="Must be a value between 0 to 100 or the default is used.">Custom probability in percentage:</abbv>
                         </td>
                         <td>
                             <input type="number" id="crafting_custom_probability" name="custom_probability" min="0" max="100" value="0" step="1">
@@ -91,7 +98,7 @@
                     </tr>
                     <tr class="advanced_mode" style="display: none;">
                         <td>
-                            <abbr title="If not working or set to black, uses the bottom input.">Custom bar color</abbr>:
+                            <abbr title="Overwrites the color if not set to black.">Custom bar color</abbr>:
                         </td>
                         <td>
                             <input type="color" id="crafting_custom_bar_color1" name="custom_bar_color" value="#000000">
@@ -99,7 +106,7 @@
                     </tr>
                     <tr class="advanced_mode" style="display: none;">
                         <td>
-                            <abbr title="If this is set to black, uses the default one.">Custom bar color (fallback)</abbr>:
+                            <abbr title="Similar as above, but in text format.">Custom bar color (fallback)</abbr>:
                         </td>
                         <td>
                             <input type="text" id="crafting_custom_bar_color2" name="custom_bar_color_fallback" value="#000000">
@@ -263,6 +270,14 @@
                     </tr>
                 </table>
             </div>
+        </div>
+        <p></p>
+        <div id="cred">
+            These calculators are unofficial, and are not totally accurate, as the data gathered was from the community itself. 
+            Inspired by
+            <a href="https://florrcrafting.glitch.me/">peterpeterp's calculator</a>
+            but sadly his is unusable now anymore... (for his older version that is stored in Wayback Machine, see <a href="https://web.archive.org/web/20231015221225/https://florrcrafting.glitch.me/">this.</a>) Thanks for contributors that helped me dealing with problems I had.
+            Thanks TheDarkMeme for the XP formula (although I modified it for the current system.)
         </div>
     </body>
 </html>

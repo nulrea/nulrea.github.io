@@ -162,7 +162,7 @@ function new_graph(id, labels, data, color, dcolor) {
         }
     });
 }
-
+name
 function calculate_func(){
     const canv = document.getElementById('crafting_result');
     canv.remove();
@@ -171,9 +171,14 @@ function calculate_func(){
     document.getElementById('graph_container').appendChild(newcanv); // to prevent canvases from overlaping
     let ri = document.getElementById("crafting_rarity").value;
     let c = document.getElementById("crafting_custom_probability").value;
-    if (c <= 0 || c >= 100)
+    let custom_chance = true;
+    if (c <= 0 || c >= 100){
         c = probabilities[ri];
+        custom_chance = false;
+    }
     else c /= 100;
+    let rarity_name = document.getElementById("crafting_custom_name").value;
+    if (rarity_name === "") rarity_name = RARITY_INDEX[ri];
     let x = document.getElementById("crafting_amount").value;
     let acc = 10**(0-document.getElementById("crafting_accuracy_magnitude").value)
     if (x < 5 && 0 <= c <= 1){
@@ -225,7 +230,7 @@ function calculate_func(){
     }
     // Add percentage symbol to y-axis ticks and tooltips
     new_graph("crafting_result", xv, yv, color_, color_2);
-    message_text.innerText = "" + x + " " + RARITY_INDEX[ri] + " petals, " + Math.round((a + Number.EPSILON) * 100) / 100 + " average successful attempts.";
+    message_text.innerText = "" + x + " " + rarity_name + " petals, " + Math.round((a + Number.EPSILON) * 100) / 100 + " average successful attempts.";
     craft_sim();
 }
 
@@ -233,9 +238,14 @@ function craft_sim(){
     let ri = document.getElementById("crafting_rarity").value;
     let x = document.getElementById("crafting_amount").value-0;
     let c = document.getElementById("crafting_custom_probability").value;
-    if (c <= 0 || c >= 100)
+    let custom_chance = true;
+    if (c <= 0 || c >= 100){
         c = probabilities[ri];
+        custom_chance = false;
+    }
     else c /= 100;
+    let rarity_name = document.getElementById("crafting_custom_name").value;
+    if (rarity_name === "") rarity_name = RARITY_INDEX[ri];
     let x1 = x;
     let s = 0;
     while (x >= 5)
@@ -245,7 +255,7 @@ function craft_sim(){
         } else
             x -= Math.floor(Math.random()*4)+1;
     let out = document.getElementById("crafting_sim_text");
-    out.innerText = "Simulation result: from " + x1 + " " + RARITY_INDEX[ri] + " petals, " + s + " succeeded attempts, " + x + " remains.\nFast approximation: " + Math.round(((x1-2.5*(1-c))/(2.5/c+2.5)+Number.EPSILON)*100)/100 + " succeeded attempts.";
+    out.innerText = "Simulation result: from " + x1 + " " + rarity_name + " petals, " + s + " succeeded attempts, " + x + " remains.\nFast approximation: " + Math.round(((x1-2.5*(1-c))/(2.5/c+2.5)+Number.EPSILON)*100)/100 + " succeeded attempts.";
 }
 
 function XP_calculate(level) {
