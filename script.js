@@ -25,6 +25,7 @@ function update_ADVANCED_MODE() {
 
 window.last_answer_craft = null;
 window.valid_petal = []; // [id, name]
+window.petal_data = []
 // help
 window.onload = () => {
     let v = fetch("p.json");
@@ -41,6 +42,7 @@ window.onload = () => {
                 selectors[i].appendChild(option);
             }
         }
+        window.petal_data = data;
     });
 }
 
@@ -184,9 +186,10 @@ function new_graph(id, labels, data, color, dcolor) {
     });
 }
 
-// TODO: on_petal_change(1)
+// TODO: on_petal_change
 function on_petal_change(index) {
-
+    let img = document.getElementById("petal_img" + index);
+    img.scr = "https://raw.githubusercontent.com/Furaken/florr.io/main/image/1_normal/petal/" + RARITY_INDEX[index-1] + "/" + data[index][2] +".png";
 }
 
 function calculate_func(){
