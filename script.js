@@ -31,7 +31,8 @@ window.onload = () => {
     let v = fetch("p.json");
     v.then(response => response.json()).then(data => {
         for (let i = 1; i < data.length; i++) {
-            window.valid_petal.push([data[i][0], data[i][1]]);
+            if (typeof data[i][0] === 'number' && !isNaN(data[i][0]))
+                window.valid_petal.push([data[i][0], data[i][1]]);
         }
         let selectors = document.getElementsByClassName("petal_type");
         for (let i = 0; i < selectors.length; i++) {
