@@ -1,0 +1,52 @@
+[
+    [
+        "id, should not appear",
+        "reference petal (shorthand), does not available if not supported",
+        "reference value for image",
+        [
+            [
+                "number of copies of the latter, negative if affected by duplicator",
+                {
+                "d": "damage, negative for constant damage (s^-1)", 
+                "h": "health, negative for invincible and it is the duration instead",
+                "t": "type: normal, inside or projectile",
+                "r": "radius; if not used, take 0",
+                "c": "reload, or cooldown before talents",
+                "s": "special functions on equip"
+                }
+            ]
+        ]
+    ],
+    [
+        1,
+        "Basic",
+        "basic",
+        [
+            [1, {"d": 10, "h": 10, "t": "n", "c": 2.5, "r": 40}],
+            [1, {"d": 30, "h": 30, "t": "n", "c": 2.5, "r": 40}],
+            [1, {"d": 90, "h": 90, "t": "n", "c": 2.5, "r": 40}],
+            [1, {"d": 270, "h": 270, "t": "n", "c": 2.5, "r": 40}],
+            [1, {"d": 810, "h": 810, "t": "n", "c": 2.5, "r": 40}],
+            [1, {"d": 2430, "h": 2430, "t": "n", "c": 2.5, "r": 40}],
+            [1, {"d": 7290, "h": 7290, "t": "n", "c": 2.5, "r": 40}],
+            [1, {"d": 21870, "h": 21870, "t": "n", "c": 2.5, "r": 40}],
+            [1, {"d": 65610, "h": 65610, "t": "n", "c": 2.5, "r": 40}]
+        ]
+    ],
+    [
+        2,
+        "Light",
+        "light",
+        [
+            [1, {"d": 13, "h": 5, "t": "n", "c": 0.75, "r": 30}],
+            [-2, {"d": 19.5, "h": 7.5, "t": "n", "c": 0.75, "r": 30}],
+            [-2, {"d": 58.5, "h": 22.5, "t": "n", "c": 0.75, "r": 30}],
+            [-3, {"d": 117, "h": 45, "t": "n", "c": 0.75, "r": 30}],
+            [-3, {"d": 351, "h": 135, "t": "n", "c": 0.75, "r": 30}],
+            [-5, {"d": 631.8, "h": 245, "t": "n", "c": 0.75, "r": 30}],
+            [-5, {"d": 1895.4, "h": 729, "t": "n", "c": 0.75, "r": 30}],
+            [-5, {"d": 5686.2, "h": 2187, "t": "n", "c": 0.75, "r": 30}],
+            [-5, {"d": 17058.6, "h": 6561, "t": "n", "c": 0.75, "r": 30}]
+        ]
+    ]
+]

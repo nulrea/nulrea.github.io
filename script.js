@@ -23,6 +23,27 @@ function update_ADVANCED_MODE() {
     });
 }
 
+window.last_answer_craft = null;
+window.valid_petal = []; // [id, name]
+// help
+window.onload = () => {
+    let v = fetch("p.json");
+    v.then(response => response.json()).then(data => {
+        for (let i = 1; i < data.length; i++) {
+            window.valid_petal.push([data[i][0], data[i][1]]);
+        }
+        let selectors = document.getElementsByClassName("petal_type");
+        for (let i = 0; i < selectors.length; i++) {
+            for (let j = 0; j < window.valid_petal.length; j++) {
+                let option = document.createElement("option");
+                option.value = window.valid_petal[j][0];
+                option.text = window.valid_petal[j][1];
+                selectors[i].appendChild(option);
+            }
+        }
+    });
+}
+
 const ii = [false,]
 
 let is_visible = false
@@ -162,7 +183,12 @@ function new_graph(id, labels, data, color, dcolor) {
         }
     });
 }
-name
+
+// TODO: on_petal_change(1)
+function on_petal_change(index) {
+
+}
+
 function calculate_func(){
     const canv = document.getElementById('crafting_result');
     canv.remove();
