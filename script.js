@@ -190,7 +190,10 @@ function new_graph(id, labels, data, color, dcolor) {
 // TODO: on_petal_change
 function on_petal_change(index) {
     let img = document.getElementById("petal_img" + index);
-    img.src = "https://raw.githubusercontent.com/Furaken/florr.io/main/image/1_normal/petal/" + RARITY_INDEX[(document.getElementById("petal_rarity" + index).value)] + "/" + window.petal_data[(document.getElementById("petal_type" + index).value)][2] +".png";
+    if (document.getElementById("petal_type" + index).value >= 0)
+        img.src = "https://raw.githubusercontent.com/Furaken/florr.io/main/image/1_normal/petal/" + RARITY_INDEX[(document.getElementById("petal_rarity" + index).value)] + "/" + window.petal_data[(document.getElementById("petal_type" + index).value)][2] +".png";
+    else
+        img.src = "https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png";
 }
 
 function calculate_func(){
