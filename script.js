@@ -265,6 +265,7 @@ function calculate_dps() {
     // Calculate DPS using petal_list
     for (let i = 0; i < petal_particles.length; i++) {
         let THAT = 2*Math.PI/_theta*Math.ceil((Math.floor((R*P["h"])/(T*_theta))+R*P["c"]+R*E_fi)/2/Math.PI)
+        print(THAT)
         // TODO: Implement DPS calculation
         if (P["h"] === Infinity){
             // special handling
@@ -291,7 +292,7 @@ function calculate_dps() {
 
 function calculate_dps_btn() {
     let dps = calculate_dps();
-    document.getElementById("dps_result").innerText = "DPS: " + numeric_to_string(dps);
+    document.getElementById("dps_result").innerText = "DPS: " + dps.toPrecision(10);
 }
 
 function calculate_func(){
