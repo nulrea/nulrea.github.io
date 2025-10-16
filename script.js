@@ -234,7 +234,7 @@ const T = 25;
 function calculate_dps() {
     const petal_base = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(e => [document.getElementById("petal_type" + e).value-0, document.getElementById("petal_rarity" + e).value-0]);
     // Get environmental variables
-    let _theta = document.getElementById("dps_T").value-0;
+    let _theta = document.getElementById("dps_theta").value-0;
     let M_d = document.getElementById("dps_M_d").value-0;
     let M_a = document.getElementById("dps_M_a").value-0;
     /* unimplemented */ let M_dl = 0.0;
