@@ -202,7 +202,7 @@ function be_real(index, d) {
     if (type < 0)
         return Array(0);
     const data = window.petal_data[type][3][rarity];
-    let c = abs(data[0]);
+    let c = Math.abs(data[0]);
     if (c === 0)
         return Array(0);
     let q;
@@ -212,7 +212,7 @@ function be_real(index, d) {
         q = 0;
     const p = data.slice(1);
     // modifiers here
-    return p.flatMap(e => Array(abs(c) + q).fill(e));
+    return p.flatMap(e => Array(Math.abs(c) + q).fill(e));
 }
 
 function get_value(petal_id, rarity, key) {
@@ -262,7 +262,7 @@ function calculate_dps() {
     }
     let dps_type_a = 0.0;
     // Calculate DPS using petal_list
-    for (let i = 0; i < petal_particles.length; i++) {
+    for (let i = 0; i < petal.length; i++) {
         let THAT = 2*Math.PI/_theta*Math.ceil((Math.floor((R*P["h"])/(T*_theta))+R*P["c"]+R*E_fi)/2/Math.PI)
         // TODO: Implement DPS calculation
         if (P["h"] === Infinity){
