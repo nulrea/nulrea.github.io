@@ -240,7 +240,7 @@ function calculate_dps() {
     /* unimplemented */ let M_dl = 0.0;
     /* unimplemented */ let M_e = 0.0;
     /* unimplemented */ let P_e = 0.0;
-    /* unimplemented */ let E_fi = 0.0;
+    let E_fi = document.getElementById("dps_E_fi").value-0;
     let Dp = document.getElementById("dps_Dp").value;
     let R = document.getElementById("dps_R").value-0;
     // Update state (petal-petal)
