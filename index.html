@@ -437,6 +437,70 @@
                         </td>
                     </tr>
                 </table>
+                <!--Environmental variables-->
+                <table>
+                    <tr>
+                        <td>
+                            Contact angle (in radians, will be replaced):
+                        </td>
+                        <td>
+                            <input type="number" id="dps_theta" name="contact_angle" min="0" max="3.141592653589793" value="1.0" step="0.1"> rad
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mob body damage:
+                        </td>
+                        <td>
+                            <input type="number" id="dps_M_d" name="mob_body_damage" min="0" max="328050" value="21870" step="1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mob armor:
+                        </td>
+                        <td>
+                            <input type="number" id="dps_M_a" name="mob_armor" min="1" max="22453" value="583" step="1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Current Speed:
+                        </td>
+                        <td>
+                            <input type="number" id="dps_R" name="current_speed" min="0.2" max="23.4" value="3.0" step="0.1"> rad/s
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            [TALENT] Duplicator:
+                        </td>
+                        <td>
+                            <select id="dps_Dp" name="duplicator">
+                                <option value="false">
+                                    No
+                                </option>
+                                <option value="true">
+                                    Yes
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            [ENVIRONMENTAL] Fly-in duration:
+                        </td>
+                        <td>
+                            <input type="number" id="dps_E_fi" name="flyin_duration" min="0" max="1" value="0.16" step="0.01"> s
+                        </td>
+                    </tr>
+                </table>
+                <button onclick="calculate_dps_btn()">
+                    Calculate DPS
+                </button>
+                <p id="dps_result">
+                    Input please
+                </p>
             </div>
             <div id="graph_container">
                 <h1 id="crafting_calculator">

@@ -7,7 +7,7 @@
             [
                 "number of copies of the latter, negative if affected by duplicator",
                 {
-                "d": "(0) damage, negative for constant damage (s^-1)", 
+                "d": "(0) damage, negative for lightning damage (s^-1)", 
                 "h": "(0) health, negative for invincible and it is the duration instead, null for immediate",
                 "t": "(n) type: normal, inside or projectile",
                 "r": "(0) radius; if not used, take 0",

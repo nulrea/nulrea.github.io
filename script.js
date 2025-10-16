@@ -187,13 +187,110 @@ function new_graph(id, labels, data, color, dcolor) {
     });
 }
 
-// TODO: on_petal_change
 function on_petal_change(index) {
     let img = document.getElementById("petal_img" + index);
     if (document.getElementById("petal_type" + index).value >= 0)
         img.src = "https://raw.githubusercontent.com/Furaken/florr.io/main/image/1_normal/petal/" + RARITY_INDEX[(document.getElementById("petal_rarity" + index).value)] + "/" + window.petal_data[(document.getElementById("petal_type" + index).value)][2] +".png";
     else
         img.src = "https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png";
+}
+
+// TODO: modifiers
+function be_real(index, d) {
+    let type = document.getElementById("petal_type" + index).value;
+    let rarity = document.getElementById("petal_rarity" + index).value;
+    if (type < 0)
+        return Array(0);
+    const data = window.petal_data[type][3][rarity];
+    let c = abs(data[0]);
+    if (c === 0)
+        return Array(0);
+    let q;
+    if (d === true && c < 0)
+        q = 1;
+    else
+        q = 0;
+    const p = data.slice(1);
+    // modifiers here
+    return p.flatMap(e => Array(abs(c) + q).fill(e));
+}
+
+function get_value(petal_id, rarity, key) {
+    try {
+        return window.petal_data[petal_id][3][rarity][key];
+    } catch (_) {
+        return null;
+    }
+}
+
+function use(x) {
+    if (!isFinite(x)) return 0;
+    return x-0;
+}
+
+const T = 25;
+
+// TODO: DPS
+function calculate_dps() {
+    const petal_base = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(e => [document.getElementById("petal_type" + e).value-0, document.getElementById("petal_rarity" + e).value-0]);
+    // Get environmental variables
+    let _theta = document.getElementById("dps_T").value-0;
+    let M_d = document.getElementById("dps_M_d").value-0;
+    let M_a = document.getElementById("dps_M_a").value-0;
+    /* unimplemented */ let M_dl = 0.0;
+    /* unimplemented */ let M_e = 0.0;
+    /* unimplemented */ let P_e = 0.0;
+    /* unimplemented */ let E_fi = 0.0;
+    let Dp = document.getElementById("dps_Dp").value;
+    let R = document.getElementById("dps_R").value-0;
+    // Update state (petal-petal)
+    let B = 0  // will change
+    // Unpack to apply, also changes the variables
+    const petal_particles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].flatMap(e => be_real(e, Dp).map(x => (typeof x === 'object' && x !== null) ? structuredClone(x) : x));
+    for (let i = 0; i < petal_particles.length; i++){
+        P = petal_particles[i];
+        if (!(P["t"] === "n" || P["t"][0] === "s")) continue; // not
+        if (use(P["h"]) <= 0){ 
+            P["h"] = 0;
+            continue; // dead
+        }
+        if (use(P["d"]) <= 0) 
+            P["d"] = 0; // no damage
+        else 
+            P["d"] = (use(P["d"]) = max(0.0, use(P["d"]) + B - M_a))*(1-M_a); // existing transformations are all linear
+        P["h"] = Math.ceil(use(P["h"])/(max(M_d - use(P["a"]), 0) + M_dl))/(1 - P_e)
+    }
+    let dps_type_a = 0.0;
+    // Calculate DPS using petal_list
+    for (let i = 0; i < petal_list.length; i++) {
+        let THAT = 2*Math.PI/_theta*Math.ceil((Math.floor((R*P["h"])/(T*_theta))+R*P["c"]+R*E_fi)/2/Math.PI)
+        // TODO: Implement DPS calculation
+        if (P["h"] === Infinity){
+            // special handling
+            let dps = P["d"]*T*_theta/2/Math.PI;
+            dps_type_a += dps;
+            continue;
+        } else if (P["h"] <= 0) {
+            // no health, no DPS
+            continue;
+        }
+        // Not tomato and variant:
+        if (P["t"][0] === "n") {
+            let dps = R * P["d"] * P["h"] / THAT;
+            dps_type_a += dps;
+        }
+        // Is tomato:
+        else if (P["t"][0] === "s") {
+            // incomplete
+            continue;
+        }
+    }
+    return dps_type_a;
+}
+
+function calculate_dps_btn() {
+    let dps = calculate_dps();
+    document.getElementById("dps_result").innerText = "DPS: " + numeric_to_string(dps);
 }
 
 function calculate_func(){
