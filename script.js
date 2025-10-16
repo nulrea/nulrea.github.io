@@ -247,6 +247,7 @@ function calculate_dps() {
     let B = 0  // will change
     // Unpack to apply, also changes the variables
     const petal_particles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].flatMap(e => be_real(e, Dp).map(x => (typeof x === 'object' && x !== null) ? structuredClone(x) : x));
+    console.log(petal_particles);
     for (let i = 0; i < petal_particles.length; i++){
         P = petal_particles[i];
         if (!(P["t"][0] === "n" || P["t"][0] === "s")) continue; // not
