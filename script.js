@@ -257,7 +257,7 @@ function calculate_dps() {
         if (use(P["d"]) <= 0) 
             P["d"] = 0; // no damage
         else 
-            P["d"] = (use(P["d"]) = max(0.0, use(P["d"]) + B - M_a))*(1-M_a); // existing transformations are all linear
+            P["d"] = max(0.0, use(P["d"]) + B - M_a))*(1-M_a); // existing transformations are all linear
         P["h"] = Math.ceil(use(P["h"])/(max(M_d - use(P["a"]), 0) + M_dl))/(1 - P_e)
     }
     let dps_type_a = 0.0;
