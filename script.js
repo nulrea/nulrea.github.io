@@ -260,6 +260,7 @@ function calculate_dps() {
         else 
             P["d"] = Math.max(0.0, use(P["d"]) + B - M_a)*(1 - M_e); // existing transformations are all linear
         P["h"] = Math.ceil(use(P["h"])/(Math.max(M_d - use(P["a"]), 0) + M_dl))/(1 - P_e)
+        console.log(P);
     }
     let dps_type_a = 0.0;
     // Calculate DPS using petal_list
