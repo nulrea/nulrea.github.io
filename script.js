@@ -249,7 +249,7 @@ function calculate_dps() {
     const petal_particles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].flatMap(e => be_real(e, Dp).map(x => (typeof x === 'object' && x !== null) ? structuredClone(x) : x));
     console.log(petal_particles);
     for (let i = 0; i < petal_particles.length; i++){
-        P = petal_particles[i];
+        let P = petal_particles[i];
         if (!(P["t"][0] === "n" || P["t"][0] === "s")) continue; // not
         if (use(P["h"]) <= 0){ 
             P["h"] = 0;
@@ -265,6 +265,7 @@ function calculate_dps() {
     let dps_type_a = 0.0;
     // Calculate DPS using petal_list
     for (let i = 0; i < petal_particles.length; i++) {
+        let P = petal_particles[i];
         let THAT = 2*Math.PI/_theta*Math.ceil((Math.floor((R*P["h"])/(T*_theta))+R*P["c"]+R*E_fi)/2/Math.PI)
         console.log(THAT);
         // TODO: Implement DPS calculation
