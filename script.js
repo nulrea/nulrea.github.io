@@ -205,14 +205,22 @@ function be_real(index, d) {
     let c = Math.abs(data[0]);
     if (c === 0)
         return Array(0);
-    let q;
-    if (d === true && c < 0)
-        q = 1;
+    let q, r;
+    if (c < 0)
+        if (d < 3)
+            q = d;
+        else q = 2;
+    else q = 0;
+    if (index === 1 && d >= 3)
+        if (rarity === 8 && d === 4)
+            r = 0;
+        else
+            r = 1;
     else
-        q = 0;
+        r = 0;
     const p = data.slice(1);
     // modifiers here
-    return p.flatMap(e => Array(Math.abs(c) + q).fill(e));
+    return p.flatMap(e => Array(Math.abs(c) + q + r).fill(e));
 }
 
 function get_value(petal_id, rarity, key) {
