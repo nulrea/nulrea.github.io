@@ -207,9 +207,7 @@ function be_real(index, d) {
         return Array(0);
     let q, r;
     if (c < 0)
-        if (d < 3)
-            q = d;
-        else q = 2;
+        return Math.min(d, 3)
     else q = 0;
     if (index === 1 && d >= 3)
         if (rarity === 8 && d === 4)
