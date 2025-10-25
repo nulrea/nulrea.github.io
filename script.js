@@ -195,7 +195,7 @@ function on_petal_change(index) {
         img.src = "https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png";
 }
 
-// TODO: modifiers
+// duplicate copies.
 function be_real(index, d) {
     let type = document.getElementById("petal_type" + index).value;
     let rarity = document.getElementById("petal_rarity" + index).value;
@@ -231,6 +231,15 @@ function get_value(petal_id, rarity, key) {
     }
 }
 
+function hits(md, ph, pa) {
+    let i;
+    for (i = 0; ph > 0; i++) {
+        ph -= Math.max(md - pa, 0);
+        pa /= 2;
+    }
+    return i;
+}
+
 function use(x) {
     if (!isFinite(x)) return 0;
     return x-0;
@@ -240,7 +249,7 @@ const T = 25;
 
 // TODO: DPS
 function calculate_dps() {
-    const petal_base = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(e => [document.getElementById("petal_type" + e).value-0, document.getElementById("petal_rarity" + e).value-0]);
+    const references = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(e => [document.getElementById("petal_type" + e).value-0, document.getElementById("petal_rarity" + e).value-0]);
     // Get environmental variables
     let _theta = document.getElementById("dps_theta").value-0;
     let M_d = document.getElementById("dps_M_d").value-0;
