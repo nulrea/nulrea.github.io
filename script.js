@@ -207,7 +207,7 @@ function be_real(index, d) {
         return Array(0);
     let q, r;
     if (c < 0)
-        return Math.min(d, 3)
+        q = Math.min(d, 3)
     else q = 0;
     if (index === 1 && d >= 3)
         if (rarity === 8 && d === 4)
@@ -261,7 +261,7 @@ function calculate_dps() {
     // Update state (petal-petal)
     let B = 0  // will change
     // Unpack to apply, also changes the variables
-    const petal_particles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].flatMap(e => (be_real(e, Dp)).map(x => (typeof x === 'object' && x !== null) ? structuredClone(x) : x));
+    const petal_particles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].flatMap(e => be_real(e, Dp).map(x => (typeof x === 'object' && x !== null) ? structuredClone(x) : x));
     console.log(petal_particles);
     for (let i = 0; i < petal_particles.length; i++){
         let P = petal_particles[i];
