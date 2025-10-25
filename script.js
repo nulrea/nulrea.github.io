@@ -202,7 +202,7 @@ function be_real(index, d) {
     if (type < 0)
         return Array(0);
     const data = window.petal_data[type][3][rarity];
-    let c = Math.abs(data[0]);
+    let c = data[0];
     if (c === 0)
         return Array(0);
     let q, r;
