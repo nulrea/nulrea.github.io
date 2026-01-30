@@ -87,7 +87,7 @@ C_ETERNAL = COL_ETERNAL[0]
 
 arr_of_cols = [C_COMMON, C_UNUSUAL, C_RARE, C_EPIC, C_LEGENDARY, C_MYTHIC, C_ULTRA, C_SUPER, C_ETERNAL]
 arr_of_dcols = ["#49E831", "#FFDC1B", "#2127D5", "#6D19B4", "#B41919", "#19B1B3" , "#F10054", "#00F189", "#C1C1C1"] //darkened colours (19%)
-probabilities = [0.64, 0.32, 0.16, 0.08, 0.04, 0.02, 0.01, 0.005, 0.001]
+probabilities = [0.64, 0.32, 0.16, 0.08, 0.04, 0.02, 0.01, 0.001]
 
 function round(x, a) {
     return 10**a*Math.round(x/10**a)
