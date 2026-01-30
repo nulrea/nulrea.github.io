@@ -96,6 +96,10 @@
   [id*="unique"], label[id*="unique"] {
     background-color: #555555;
   }
+
+  [id*="eternal"], label[id*="eternal"] {
+    background-color: #eeeeee;
+  }
   
   button {
     background-color: #b7d7e8;
