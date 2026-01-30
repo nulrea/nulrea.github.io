@@ -10,8 +10,8 @@ const NUMERIC_SUFFIX = [  "",   "k",   "m",   "b",    "t",   "qd",   "qt",   "sx
                                 "ng", "ung", "dng", "tng", "qdng", "qtng", "sxng", "spng", "ocng", "nong",
                                 "ce", "uce",
 ],
-        RARITY_INDEX = ["common", "unusual", "rare", "epic", "legendary", "mythic",  "ultra",    "super",      "unique"],
-        CORRES_VALUE = [       1,         5,     50,     500,      10000,   500000, 50000000, 5000000000, 1000000000000]
+        RARITY_INDEX = ["common", "unusual", "rare", "epic", "legendary", "mythic",  "ultra",    "super", "unique", "eternal"],
+        CORRES_VALUE = [       1,         5,     50,     500,      10000,   500000, 50000000, 5000000000,      NaN,       NaN]
 
 function update_ADVANCED_MODE() {
     document.querySelectorAll(".advanced_mode").forEach(function(element) {
@@ -73,6 +73,7 @@ COL_LEGENDARY = ["#DE1F1F"]
 COL_MYTHIC = ["#1FDBDD"]
 COL_ULTRA = ["#FF2B75"]
 COL_SUPER = ["#2BFFA3"]
+COL_ETERNAL = ["#EEEEEE"]
 
 C_COMMON = COL_COMMON[0]
 C_UNUSUAL = COL_UNUSUAL[0]
@@ -82,10 +83,11 @@ C_LEGENDARY = COL_LEGENDARY[0]
 C_MYTHIC = COL_MYTHIC[0]
 C_ULTRA = COL_ULTRA[0]
 C_SUPER = COL_SUPER[0]
+C_ETERNAL = COL_ETERNAL[0]
 
-arr_of_cols = [C_COMMON, C_UNUSUAL, C_RARE, C_EPIC, C_LEGENDARY, C_MYTHIC, C_ULTRA, C_SUPER]
-arr_of_dcols = ["#49E831", "#FFDC1B", "#2127D5", "#6D19B4", "#B41919", "#19B1B3" , "#F10054", "#00F189"] //darkened colours (19%)
-probabilities = [0.64, 0.32, 0.16, 0.08, 0.04, 0.02, 0.01, 0.005]
+arr_of_cols = [C_COMMON, C_UNUSUAL, C_RARE, C_EPIC, C_LEGENDARY, C_MYTHIC, C_ULTRA, C_SUPER, C_ETERNAL]
+arr_of_dcols = ["#49E831", "#FFDC1B", "#2127D5", "#6D19B4", "#B41919", "#19B1B3" , "#F10054", "#00F189", "#C1C1C1"] //darkened colours (19%)
+probabilities = [0.64, 0.32, 0.16, 0.08, 0.04, 0.02, 0.01, 0.005, 0.001]
 
 function round(x, a) {
     return 10**a*Math.round(x/10**a)
